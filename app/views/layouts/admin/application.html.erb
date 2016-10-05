@@ -11,11 +11,11 @@
   </head>
   <body>
     <div id="page-wrapper">
-      <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
-        <%= render "layouts/sidebar" %>
+      <div id="page-container">
         <div id="main-container">
-          <%= render "layouts/header" %>
+          <%= render "layouts/admin/header" %>
           <div id="page-content">
+            <%= render "layouts/admin/menu"%>
             <%= yield %>
           </div>
           <%= render "layouts/shared/footer" %>
