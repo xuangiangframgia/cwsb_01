@@ -6,6 +6,6 @@ RSpec.describe Image, type: :model do
   end
 
   context "validates" do
-    it {is_expected.to validate_presence_of :image_url}
+    it {is_expected.to validate_presence_of :picture}
   end
 end

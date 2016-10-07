@@ -4,7 +4,7 @@ class CreateWorkingTimes < ActiveRecord::Migration[5.0]
       t.integer :day_in_week, null: false
       t.time :working_from, null: false
       t.time :working_to, null: false
-      t.references :space, index: true, foreign_key: true
+      t.references :venue, index: true, foreign_key: true
 
       t.timestamps
     end

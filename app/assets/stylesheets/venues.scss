@@ -1,0 +1,47 @@
+.row-bordered:after {
+  content: "";
+  display: block;
+  border: 1px solid #ccc;
+  margin: 0 15px;
+}
+
+.venue-items{
+  height: 150px;
+}
+
+.venue-info{
+  height: 150px;
+}
+
+.venue-items-info{
+  height: 300px;
+}
+
+.gutter{
+  margin-top: 100px;
+}
+
+.venue-address{
+  margin-top: 40px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+ }
+
+ #gmap_canvas img{
+  max-width: none !important;
+  background: none !important;
+}
+
+.map-info{
+  overflow: hidden;
+  height: 440px;
+  width: 350px;
+}
+
+.map-show{
+  height: 440px;
+  width: 350px;
+}

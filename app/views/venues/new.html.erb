@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="col-md-12">
+        <p class="lead"><%= t "new_venue" %></p>
+    </div>
+    <div class="col-md-12">
+      <%= simple_form_for @venue do |f| %>
+        <%= f.input :name, input_html: {class: "form-control"} %>
+        <%= f.input :description, input_html: {class: "form-control"} %>
+        <%= f.simple_fields_for :address do |form_address| %>
+          <%= form_address.input :details,
+            input_html: {class: "form-control", id: "address"} %>
+        <% end %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="block full">
+      <div class="block-title">
+        <h4><strong><%= t "markers" %></strong><%= t "map" %></h4>
+      </div>
+      <div class="map-info">
+         <div id="gmap_canvas" class="map-show"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyJ3SWFP8U5Xmqe3H3X_iOsR1nw1v6_Q&&libraries=places"></script>

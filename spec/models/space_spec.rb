@@ -4,7 +4,6 @@ RSpec.describe Space, type: :model do
   context "associations" do
     it {is_expected.to have_many :images}
     it {is_expected.to have_many :bookings}
-    it {is_expected.to have_many :working_times}
     it {is_expected.to have_many :coupons}
     it {is_expected.to have_many :prices}
     it {is_expected.to have_many :booking_types}

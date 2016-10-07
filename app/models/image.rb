@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
-  belongs_to :imageable, polymorphic: true
-  belongs_to :user
-  validates :image_url, presence: true
+  belongs_to :imageable, polymorphic: true, optional: true
+  belongs_to :user, optional: true
+  validates :picture, presence: true
+  mount_uploader :picture, PictureUploader
 end

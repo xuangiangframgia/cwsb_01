@@ -22,6 +22,18 @@
 en:
   hello: "Hello world"
   in: "in"
+  new_venue: "Create Venue"
+  markers: "Markers"
+  venue_description: "venue description"
+  map: "Map"
+  venue_name: "venue name"
+  add_venue: "Add venue"
+  venue_address: "venue Address"
+  venue: "VENUE"
+  detail: "DETAIL"
+  flash:
+    success_message: "successfully!"
+    danger_message: "error"
   layout:
     base_title: "CWBS"
     site_name: "CWBS"
