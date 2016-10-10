@@ -44,3 +44,80 @@ en:
     venues: "Venues"
     booking: "Booking"
     statistics: "Statistics"
+  users:
+    mailer:
+      confirm:
+        welcome: "Welcome"
+        remind: "You can confirm your account email through the link below:"
+        confirm_account: "Confirm my account"
+      password_change:
+        welcome: "Hello"
+        remind: "We're contacting you to notify you that your password has been changed."
+      reset_password:
+        welcome: "Hello"
+        remind1: "Someone has requested a link to change your password. You can do this through the link below."
+        remind2: "If you didn't request this, please ignore this email."
+        remind3: "Your password won't change until you access the link above and create a new one."
+        change_password: "Change my password"
+      unlock:
+        welcome: "Hello"
+        remind1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        remind2: "Click the link below to unlock your account:"
+        my_account: "Unlock my account"
+    registrations:
+      new:
+        sign_up: "Sign up"
+        title: "Co-working space booking system"
+        remind: "Please Login or Register"
+        name: "Name"
+        email: "Email"
+        password: "Password (At least 8 characters)"
+        confirm_pass: "Verify password"
+        have_account: "Do you have an account?"
+        login: "Login"
+      edit:
+        title: "Your Profile"
+        title_info: "Customer Info"
+        basic: " Basic info"
+        username: "Username "
+        email: "Email "
+        password: "Password "
+        remind_password: "(leave blank if you don't want to change it)"
+        minimum: "characters minimum"
+        confirm_password: "Confirm Password "
+        current_password: "Current Password "
+        current_password_remind: "(we need your current password to confirm your changes)"
+        addition: " Additional info"
+        short_bio: "Short bio "
+        bio_place: "Tell us your story.."
+        best_skill: "Best skill "
+        skill_place: "Tell us your best skill"
+        phone_number: "Phone number "
+        phone_place: "Your phone number"
+        extra: " Extras"
+        facebook: "Facebook profile "
+        fb_place: "E.g. www.facebook.com/yourname"
+        google: "Google profile "
+        gg_place: "E.g. www.google.com/yourname"
+        twitter: "Twitter profile "
+        twit_place: "E.g. www.twitter.com/yourname"
+        change: "Save changed"
+    sessions:
+      new:
+        sign_in: "Log in"
+        password: "Password"
+        forgot_password: "Forgot password?"
+        create_new_account: "Create a new account"
+    passwords:
+      new:
+        forgot_pass: "Forgot password"
+        reset_password: "Send me reset password instructions"
+        remind: "Did you remember your password? "
+      edit:
+        submit: "Change my password"
+        confirm: "Confirm new password"
+        new: "New password"
+        reset_password: "Reset password"
+    confirmations:
+      new:
+        remind: "Resend confirmation instructions"
