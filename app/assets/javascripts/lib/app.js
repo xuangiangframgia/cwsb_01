@@ -465,4 +465,9 @@ var App = function() {
 }();
 
 /* Initialize app when page loads */
-$(function(){ App.init();});
+$(function(){
+  App.init();
+  $('#toggle-sidebar-section').on('click', function(){
+    App.sidebar('toggle-sidebar');
+  });
+});
