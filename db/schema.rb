@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006071715) do
+ActiveRecord::Schema.define(version: 20161019015247) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "details",                   null: false
@@ -49,9 +49,13 @@ ActiveRecord::Schema.define(version: 20161006071715) do
   end
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                        null: false
+    t.string   "description"
+    t.string   "quanity"
+    t.boolean  "is_free",     default: false
+    t.boolean  "is_default",  default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "booking_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -162,6 +166,12 @@ ActiveRecord::Schema.define(version: 20161006071715) do
     t.index ["role_id"], name: "index_permissions_on_role_id", using: :btree
   end
 
+  create_table "price_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",           limit: 24, null: false
     t.integer  "space_id"
@@ -194,6 +204,17 @@ ActiveRecord::Schema.define(version: 20161006071715) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "service_charges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "amenity_id"
+    t.integer  "price_type_id"
+    t.float    "price",         limit: 24
+    t.integer  "quantity"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["amenity_id"], name: "index_service_charges_on_amenity_id", using: :btree
+    t.index ["price_type_id"], name: "index_service_charges_on_price_type_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -305,6 +326,7 @@ ActiveRecord::Schema.define(version: 20161006071715) do
   add_foreign_key "prices", "spaces"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "venues"
+  add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"
   add_foreign_key "user_role_venues", "roles"
   add_foreign_key "user_role_venues", "users"

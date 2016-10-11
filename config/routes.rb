@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
-  resources :venues
   resources :bookings
+  resources :venues do
+    resources :venue_amenities
+    resources :amenities do
+      resources :service_charges
+    end
+  end
 end

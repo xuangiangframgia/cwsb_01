@@ -23,7 +23,7 @@ class VenuesController < ApplicationController
     end
   end
 
-   def update
+  def update
     if @venue.update_attributes venue_params
       flash[:success] = t "flash.success_message"
       redirect_to edit_venue_path @venue, active: params[:detail]

@@ -19,17 +19,17 @@
             <i class="fa fa-user fa-fw pull-right"></i>
             <%= t "layout.profile" %>
           </a>
-          <a href="javascript:">
+          <%= link_to edit_user_registration_path do %>
             <i class="fa fa-cog fa-fw pull-right"></i>
             <%= t "layout.settings" %>
-          </a>
+          <% end %>
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:">
+          <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa fa-ban fa-fw pull-right"></i>
             <%= t "layout.logout" %>
-          </a>
+          <% end %>
         </li>
       </ul>
     </li>
