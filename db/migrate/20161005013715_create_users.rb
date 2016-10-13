@@ -7,6 +7,13 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.boolean :verified
       t.boolean :active
       t.integer :role
+      t.string :bio
+      t.string :company
+      t.string :position
+      t.string :skill
+      t.string :facebook
+      t.string :google
+      t.string :twitter
 
       t.timestamps
     end

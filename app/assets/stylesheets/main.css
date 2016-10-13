@@ -1442,9 +1442,6 @@ img.full-bg {
     min-width: 1280px;
     width: 100%;
     height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
 @media screen and (max-width: 1280px) {
@@ -3679,6 +3676,12 @@ p, .table, .alert, .carousel {
 */
 
 /* Small devices, Tablets (>767px) */
+@media screen and (max-width: 1000px){
+  #login-container{
+    top: 150px;
+    position: relative;
+  }
+}
 @media screen and (min-width: 768px) {
 
     /* General */
@@ -3691,10 +3694,9 @@ p, .table, .alert, .carousel {
     }
 
     #login-container,
-    #login-alt-container {
-        width: 480px;
-        top: 186px;
-        margin-left: -240px;
+    #login-alt-container{
+      width: 480px;
+      margin-top: 100px;
     }
 
     #page-content {

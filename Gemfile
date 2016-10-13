@@ -12,6 +12,9 @@ gem "jquery-turbolinks"
 gem "bootstrap-sass",          "3.2.0.0"
 gem "jbuilder", "~> 2.5"
 gem "devise"
+gem "devise-async"
+gem "figaro"
+gem "sidekiq"
 
 group :development, :test do
   gem "byebug", platform: :mri
