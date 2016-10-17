@@ -12,7 +12,7 @@ RSpec.describe Space, type: :model do
   end
 
   context "validates" do
-    it {is_expected.to validate_presence_of :type}
+    it {is_expected.to validate_presence_of :space_type}
     it {is_expected.to validate_presence_of :size}
     it {is_expected.to validate_presence_of :capicity}
     it {is_expected.to validate_presence_of :quantity}

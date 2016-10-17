@@ -15,6 +15,10 @@ gem "devise"
 gem "devise-async"
 gem "figaro"
 gem "sidekiq"
+gem "gmaps4rails"
+gem "geocoder"
+gem "faker"
+gem "config"
 
 group :development, :test do
   gem "byebug", platform: :mri
@@ -32,10 +36,11 @@ group :development do
 end
 
 group :test do
-  gem "faker"
   gem "database_cleaner"
   gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers"
+  gem "rails-controller-testing"
   gem "simplecov", require: false
+  gem "rspec-activemodel-mocks"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
