@@ -9,10 +9,10 @@ RSpec.describe Venue, type: :model do
     it {is_expected.to have_many :amenities}
     it {is_expected.to have_many :reviews}
     it {is_expected.to have_many :spaces}
+    it {is_expected.to have_many :working_times}
   end
 
   context "validates" do
     it {is_expected.to validate_presence_of :name}
-    it {is_expected.to validate_presence_of :description}
   end
 end

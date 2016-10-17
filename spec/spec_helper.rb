@@ -18,6 +18,8 @@ SimpleCov.start 'rails'
 # users commonly want.
 require 'simplecov'
 SimpleCov.start
+require 'rails-controller-testing'
+Rails::Controller::Testing.install
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

@@ -4,7 +4,6 @@ class Space < ApplicationRecord
 
   has_many :images, as: :imageable
   has_many :bookings
-  has_many :working_times
   has_many :prices
   has_many :coupons
   has_many :booking_types, through: :coupons

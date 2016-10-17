@@ -13,13 +13,17 @@
 ActiveRecord::Schema.define(version: 20161010092336) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "details",               null: false
+    t.string   "details",                   null: false
+    t.string   "city"
+    t.float    "latitude",       limit: 24
+    t.float    "longitude",      limit: 24
+    t.string   "postal_code"
+    t.string   "street_address"
+    t.string   "unit"
     t.integer  "county_id"
     t.integer  "venue_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.float    "latitude",   limit: 24
-    t.float    "longitude",  limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["county_id"], name: "index_addresses_on_county_id", using: :btree
     t.index ["venue_id"], name: "index_addresses_on_venue_id", using: :btree
   end
@@ -114,7 +118,7 @@ ActiveRecord::Schema.define(version: 20161010092336) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image_url",      null: false
+    t.string   "picture",        null: false
     t.string   "title"
     t.string   "imageable_type"
     t.integer  "imageable_id"
@@ -259,20 +263,27 @@ ActiveRecord::Schema.define(version: 20161010092336) do
   end
 
   create_table "venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",        null: false
-    t.string   "description", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",                           null: false
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "website"
+    t.integer  "number_of_floors"
+    t.integer  "floor_space"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_desks"
+    t.text     "description",      limit: 65535, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "working_times", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "day_in_week",  null: false
     t.time     "working_from", null: false
     t.time     "working_to",   null: false
-    t.integer  "space_id"
+    t.integer  "venue_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["space_id"], name: "index_working_times_on_space_id", using: :btree
+    t.index ["venue_id"], name: "index_working_times_on_venue_id", using: :btree
   end
 
   add_foreign_key "addresses", "counties"
@@ -299,5 +310,5 @@ ActiveRecord::Schema.define(version: 20161010092336) do
   add_foreign_key "user_role_venues", "venues"
   add_foreign_key "venue_amenities", "amenities"
   add_foreign_key "venue_amenities", "venues"
-  add_foreign_key "working_times", "spaces"
+  add_foreign_key "working_times", "venues"
 end

@@ -7,7 +7,6 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
-gem "turbolinks", "~> 5"
 gem "jquery-turbolinks"
 gem "bootstrap-sass",          "3.2.0.0"
 gem "jbuilder", "~> 2.5"
@@ -19,6 +18,14 @@ gem "gmaps4rails"
 gem "geocoder"
 gem "faker"
 gem "config"
+gem "simple_form"
+gem "geocoder"
+gem "rmagick"
+gem "carrierwave"
+gem "cancancan", "1.10"
+source "https://rails-assets.org" do
+  gem "rails-assets-growl"
+end
 
 group :development, :test do
   gem "byebug", platform: :mri
@@ -37,6 +44,7 @@ end
 
 group :test do
   gem "database_cleaner"
+  gem "rails-controller-testing"
   gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers"
   gem "rails-controller-testing"
   gem "simplecov", require: false
