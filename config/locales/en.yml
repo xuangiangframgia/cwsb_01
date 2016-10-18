@@ -31,13 +31,21 @@ en:
   venue_address: "venue Address"
   venue: "VENUE"
   detail: "DETAIL"
+  vnd_slash: "VND/"
   flash:
     success_message: "successfully!"
     danger_message: "error"
   from: "From"
   to: "To"
+  booking_types:
+    DAY: "day"
+    WEEK: "week"
+    MONTH: "month"
   date:
     day_names: [SUN, MON, TUE, WED, THU, FRI, SAT]
+  time:
+    formats:
+      time_session: "%I:%M %p"
   layout:
     base_title: "CWBS"
     site_name: "CWBS"

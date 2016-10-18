@@ -16,7 +16,8 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
-//= require_tree .
+//= require_tree ./lib
+//= require_tree ../../../vendor/assets/javascripts
 //= require jquery
 //= require growl
 //= require bootstrap-sprockets

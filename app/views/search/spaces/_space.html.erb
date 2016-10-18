@@ -1,13 +1,13 @@
 <div class="col-md-6">
   <div class="widget">
     <div class="widget-simple">
-      <a href="javascript" class="widget-icon pull-right themed-background">
+      <a href="javascript:" class="widget-icon pull-right themed-background">
         <i class="gi gi-picture"></i>
       </a>
       <h4 class="widget-content">
-        <a href="javascript:">
+        <%= link_to search_space_path(space), target: :_blank do %>
           <strong><%= space.space_type.humanize %></strong>
-        </a>
+        <% end %>
         <small>
           <%= t "in" %>
           <%= link_to space.venue.name, "javascript:" %>
@@ -20,7 +20,7 @@
         <div class="carousel-inner">
           <% space.images.each do |image| %>
             <div class="item <%= first_active space.images, image %>">
-              <%= image_tag image.image_url, alt: image.title %>
+              <%= image_tag image.picture.url, alt: image.title %>
             </div>
           <% end %>
         </div>
