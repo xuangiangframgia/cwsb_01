@@ -17,6 +17,7 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree ./lib
+//= require_tree ./page
 //= require_tree ../../../vendor/assets/javascripts
 //= require jquery
 //= require growl

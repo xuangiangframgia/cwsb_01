@@ -22,6 +22,8 @@
 en:
   hello: "Hello world"
   in: "in"
+  check_all: "Check all"
+  working_times: "Working times"
   new_venue: "Create Venue"
   markers: "Markers"
   venue_description: "venue description"

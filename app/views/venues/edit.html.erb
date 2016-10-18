@@ -13,7 +13,7 @@
       </div>
       <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="tab-content">
             <div class="tab-pane <%= 'active' if params[:active].blank? %>" id="courses-categories">
               <%= simple_form_for @venue do |f| %>
@@ -55,13 +55,49 @@
                   input_html: {class: "form-control"} %>
                 <%= f.input :number_of_desks,
                   input_html: {class: "form-control"} %>
-                <%= hidden_field_tag :detail, :active %>
+                <%= hidden_field_tag :detail, :active %><br>
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <b><%= t "working_times" %></b>
+                    <div class="checkbox-group pull-right">
+                      <input ng-model="scheduleControl.different" name="different" id="different" class="ng-valid ng-dirty" type="checkbox">
+                      <label for="different" class="checkbox-label"><%= t "check_all" %></label>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="working_times">
+                      <%= f.simple_fields_for :working_times do |form_working_times| %>
+                        <div class="row checkbox_times">
+                          <div class="col-md-2">
+                            <%= form_working_times.input :day_in_week,
+                              input_html: {class: "form-control", id: "day_in_week", disabled: true} %>
+                          </div>
+                          <div class="col-md-4">
+                            <%= form_working_times.input :working_to,
+                              input_html: {class: "form-control", id: "working_to"} %>
+                          </div>
+                          <div class="col-md-4">
+                            <%= form_working_times.input :working_from,
+                              input_html: {class: "form-control", id: "working_from"} %>
+                          </div>
+                          <div class="col-md-1">
+                            <%= form_working_times.input :status, as: :boolean,
+                              checked_value: "open", unchecked_value: "close",
+                              label: false,  input_html: {id: "label_#{form_working_times.object.id }"} %>
+                          </div>
+                          <div class="col-md-1">
+                            <%= label_status form_working_times.object %>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
                 <%= f.button :submit, class: "btn btn-primary pull-right" %>
               <% end %>
             </div>
           </div>
         </div>
-        <div class="col-md-3"></div>
       </div>
     </div>
   </div>
