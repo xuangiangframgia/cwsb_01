@@ -14,23 +14,21 @@ RSpec.describe Search::SpacesController, type: :controller do
     end
 
     context "check for gmaps rails" do
-      let!(:address) {FactoryGirl.create :address}
-      let!(:venue) {stub_model(Venue, name: "test", description: "test",
-        address: address)}
-      let(:addresses) {address}
+      let!(:venue) {FactoryGirl.create :venue}
+      let(:addresses) {[venue.address]}
       let(:hash) {mark_to_maps(addresses)}
 
       it "stubs :latitude" do
-        expect(address.latitude).not_to be_nil
+        expect(venue.address.latitude).not_to be_nil
       end
       it "stubs :longitude" do
-        expect(address.longitude).not_to be_nil
+        expect(venue.address.longitude).not_to be_nil
       end
       it "markers :latitude" do
-        expect(hash.first.values.first).to eql address.latitude
+        expect(hash.first.values.first).to eql venue.address.latitude
       end
       it "markers :longitude" do
-        expect(hash.first.values.second).to eql address.longitude
+        expect(hash.first.values.second).to eql venue.address.longitude
       end
     end
   end

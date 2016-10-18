@@ -9,4 +9,7 @@ class Search::SpacesController < ApplicationController
       format.js
     end
   end
+
+  def show
+  end
 end

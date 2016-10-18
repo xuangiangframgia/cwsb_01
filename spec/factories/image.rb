@@ -1,5 +1,8 @@
 FactoryGirl.define do
   factory :image do
-    image_url "/images/spaces/space_default.jpg"
+    picture do
+      Rack::Test::UploadedFile.new File.join(Rails.root, "public", "images",
+        "spaces", "space1.jpg")
+    end
   end
 end
