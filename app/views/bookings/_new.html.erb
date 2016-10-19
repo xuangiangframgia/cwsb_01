@@ -1,0 +1,43 @@
+<div class="media-body footer-section line-break-block">
+  <p class="push-bit">
+    <strong><%= t ".booking" %></strong>
+  </p>
+  <div class="row">
+    <%= render "shared/error_messages", object: booking %>
+  </div>
+  <div class="form-group">
+    <div class="col-md-4 col-sm-4">
+      <p><strong><%= t ".date" %></strong></p>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <p><strong><%= t ".duration" %></strong></p>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <p><strong><%= t ".quantity" %></strong></p>
+    </div>
+  </div>
+  <div class="form-group">
+     <%= simple_form_for booking, remote: true do |f| %>
+      <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+          <%= f.input_field :booking_from, as: :date, html5: true,
+            class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <%= f.number_field :duration, min: Settings.min_duration, class: "form-control input-sm" %>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <%= f.select :booking_type_id,
+          options_from_collection_for_select(booking.space.booking_types, :id, :name),
+          {}, class: "form-control col-md-4 input-sm" %>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <%= f.number_field :quantity, min: Settings.min_quantity, class: "form-control input-sm" %>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <%= f.submit t("book_now"), class: "btn btn-sm btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

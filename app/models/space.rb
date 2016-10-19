@@ -6,7 +6,7 @@ class Space < ApplicationRecord
   has_many :bookings
   has_many :prices
   has_many :coupons
-  has_many :booking_types, through: :coupons
+  has_many :booking_types, through: :prices
 
   enum space_type: {desk: 0, prive_office: 1, meeting_room: 2}
 

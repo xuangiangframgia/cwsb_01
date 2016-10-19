@@ -7,6 +7,6 @@ class Booking < ApplicationRecord
   has_many :notifications, as: :notifiable
 
   validates :booking_from, presence: true
-  validates :booking_to, presence: true
+  validates :duration, presence: true
   validates :quantity, presence: true
 end

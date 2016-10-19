@@ -11,7 +11,7 @@ RSpec.describe Booking, type: :model do
 
   context "validates" do
     it {is_expected.to validate_presence_of :booking_from}
-    it {is_expected.to validate_presence_of :booking_to}
+    it {is_expected.to validate_presence_of :duration}
     it {is_expected.to validate_presence_of :quantity}
   end
 end
