@@ -1,5 +1,6 @@
 class Search::SpacesController < ApplicationController
   include GeneralHelper
+  load_resource
 
   def index
     @addresses = Address.near params[:search], Settings.radius_search_in_miles

@@ -197,13 +197,14 @@ ActiveRecord::Schema.define(version: 20161006071715) do
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "space_type", null: false
-    t.integer  "size",       null: false
-    t.integer  "capicity",   null: false
-    t.integer  "quantity",   null: false
+    t.integer  "space_type",                null: false
+    t.integer  "size",                      null: false
+    t.integer  "capicity",                  null: false
+    t.integer  "quantity",                  null: false
+    t.text     "description", limit: 65535, null: false
     t.integer  "venue_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["venue_id"], name: "index_spaces_on_venue_id", using: :btree
   end
 

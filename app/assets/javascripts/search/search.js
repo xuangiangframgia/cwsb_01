@@ -1,5 +1,5 @@
 $(function(){
-  $(window).load(function(){
+  $(window).on('load', function(){
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
     var markers = [];
