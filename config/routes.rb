@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :venues
+  resources :bookings
 end

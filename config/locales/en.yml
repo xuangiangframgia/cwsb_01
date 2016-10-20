@@ -32,6 +32,7 @@ en:
   venue: "VENUE"
   detail: "DETAIL"
   vnd_slash: "VND/"
+  book_now: "Book now"
   flash:
     success_message: "successfully!"
     danger_message: "error"
@@ -146,6 +147,13 @@ en:
     confirmations:
       new:
         remind: "Resend confirmation instructions"
+  bookings:
+    new:
+      date: "Date"
+      duration: "Duration"
+      quantity: "Quantity"
+    create:
+      success: "Booking successfully!"
   search:
     place_holder: "Enter location"
     spaces:
@@ -161,9 +169,6 @@ en:
         full_venue_profile: "Full venue profile"
         open_hours: "Open hours"
         booking: "Booking"
-        date: "Date"
-        duration: "Daration"
-        book_now: "Book now"
   errors:
     spaces:
       no_result: "No spaces found"

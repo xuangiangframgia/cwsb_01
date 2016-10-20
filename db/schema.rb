@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20161006071715) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "booking_from",    null: false
-    t.datetime "booking_to",      null: false
+    t.integer  "duration",        null: false
     t.integer  "quantity",        null: false
     t.boolean  "is_confirmed"
     t.boolean  "is_paid"

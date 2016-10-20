@@ -131,40 +131,8 @@
           </div>
         <% end %>
       </div>
-      <div class="media-body footer-section line-break-block">
-        <p class="push-bit">
-          <strong><%= t ".booking" %></strong>
-        </p>
-        <div class="form-group">
-          <div class="col-md-4 col-sm-4">
-            <p><strong><%= t ".date" %></strong></p>
-          </div>
-          <div class="col-md-8 col-sm-8">
-            <p><strong><%= t ".duration" %></strong></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-4 col-sm-4">
-            <div class="form-group">
-              <input type="text" id="" name="" class="form-control input-datepicker input-sm" data-date-format="dd-mm-yyyy">
-            </div>
-          </div>
-          <div class="col-md-2 col-sm-2">
-            <input type="number" id="" name="" class="form-control input-sm">
-          </div>
-          <div class="col-md-2 col-sm-2">
-            <select class="form-control col-md-4 input-sm">
-              <option value="0">day</option>
-              <option value="0">week</option>
-              <option value="0">month</option>
-            </select>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <button type="submit" class="btn btn-sm btn-primary">
-              <%= t "book_now" %>
-            </button>
-          </div>
-        </div>
+      <div id="create-booking-block">
+        <%= render "bookings/new", booking: @booking %>
       </div>
     </div>
   </div>

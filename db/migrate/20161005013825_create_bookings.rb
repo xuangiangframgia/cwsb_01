@@ -2,7 +2,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
   def change
     create_table :bookings do |t|
       t.datetime :booking_from, null: false
-      t.datetime :booking_to, null: false
+      t.integer :duration, null: false
       t.integer :quantity, null: false
       t.boolean :is_confirmed
       t.boolean :is_paid
