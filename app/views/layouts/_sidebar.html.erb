@@ -15,14 +15,16 @@
         </div>
         <div class="sidebar-user-name"><%= t "layout.my_account" %></div>
         <div class="sidebar-user-links">
-          <a href="javascript:" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
-          <a href="javascript:" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
-          <a href="javascript:" data-toggle="modal" class="enable-tooltip" data-placement="bottom" title="Settings">
+          <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
+          <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
+          <%= link_to edit_user_registration_path, method: :get,
+            title: t("layout.setting"), class: "enable-tooltip" do %>
             <i class="gi gi-cogwheel"></i>
-          </a>
-          <a href="javascript:" data-toggle="tooltip" data-placement="bottom" title="Logout">
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete,
+            title: t("layout.logout"), class: "enable-tooltip" do %>
             <i class="gi gi-exit"></i>
-          </a>
+          <% end %>
         </div>
       </div>
       <ul class="sidebar-nav">

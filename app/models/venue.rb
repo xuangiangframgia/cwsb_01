@@ -13,8 +13,11 @@ class Venue < ApplicationRecord
 
   after_create :create_user_venue
 
+  validates :description, presence: true
   validates :name, presence: true
+
   delegate :details, to: :address, prefix: true
+
   accepts_nested_attributes_for :address, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
 

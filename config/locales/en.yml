@@ -172,3 +172,75 @@ en:
   errors:
     spaces:
       no_result: "No spaces found"
+  amenities:
+    errors:
+      load: "Don't have any amenity in store"
+    new:
+      block_title: "Create Venue"
+      clickable_venue: "VENUE"
+      clickable_details: "DETAILS"
+      clickable_space_pricing: "SPACES AND PRICING"
+      clickable_admins: "ADMINS"
+      clickable_amenities: "AMENITIES"
+      clickable_marketplaces: "MARKETPLACE"
+      title: "Add amenity"
+      service: "Service or amenity name"
+      place_wifi: "E.g. High speed WiFi"
+      description: "Description"
+      description_place: "E.g. Description for his amenity"
+      quantity: "Quantity available"
+      quantity_place: "E.g. 2"
+      is_free: "This amenity is free"
+      submit: "Save"
+      create_success: "Create amenity successfully"
+      create_fail: "Have some error when create amenity"
+      edit_success: "Edit amenity successfully"
+      cancel: "Cancel"
+      price: "Price (VND)"
+      price_plholder: "E.g. 120"
+      per: "Per"
+      quantity_plholder: "E.g. 2"
+    index:
+      block_title: "Create Venue"
+      th_amenity: "Amenity"
+      th_is_free: "Is Free"
+      th_edit_delete: "Edit / Delete"
+      th_service_charge: "Service charge"
+      th_description: "Description"
+      inner_left: "Add custom amenity"
+      inner_right: "Next"
+      free: "Free"
+      vnd_per: " VND per "
+      confirm: "Are you sure?"
+    form_outline:
+      clickable_venue: "VENUE"
+      clickable_details: "DETAILS"
+      clickable_space_pricing: "SPACES AND PRICING"
+      clickable_admins: "ADMINS"
+      clickable_amenities: "AMENITIES"
+      clickable_marketplaces: "MARKETPLACE"
+    edit:
+      price: "Price (VND)"
+      price_plholder: "E.g. 120"
+      per: "Per"
+      quantity_plholder: "E.g. 2"
+    form:
+      price: "Price (VND)"
+      price_plholder: "E.g. 120"
+      per: "Per"
+      quantity_plholder: "E.g. 2"
+    destroy:
+      delete_successfully: "Delete amenity successfully"
+      delete_error: "Delete amenity error"
+  venues:
+    errors:
+      nil_venue: "Can't find this venue"
+      create_fail: "Have some problem when create amenity"
+      load_fail: "Don't have any venue in store"
+  service_charges:
+    success:
+      create: "Create service charge successfully"
+      update: "Update service charge successfully"
+    errors:
+      create: "Have problem when create service charge"
+      update: "Have problem when update service charge"
