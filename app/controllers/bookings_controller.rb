@@ -5,9 +5,6 @@ class BookingsController < ApplicationController
   def index
   end
 
-  def new
-  end
-
   def create
     @booking = Booking.new booking_params
     @booking.save
