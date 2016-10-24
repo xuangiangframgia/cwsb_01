@@ -32,4 +32,18 @@ RSpec.describe Search::SpacesController, type: :controller do
       end
     end
   end
+
+  describe "GET #show" do
+    let(:space) {FactoryGirl.create :space}
+    before do
+      get :show, id: space.id
+    end
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the show template" do
+      expect(response).to render_template(:show)
+    end
+  end
 end

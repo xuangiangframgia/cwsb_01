@@ -7,9 +7,6 @@ class BookingsController < ApplicationController
       .group_by{|booking| booking.space.venue}
   end
 
-  def new
-  end
-
   def create
     @booking = Booking.new booking_params
     @booking.save

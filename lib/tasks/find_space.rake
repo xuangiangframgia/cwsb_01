@@ -1,4 +1,12 @@
 namespace :search_space do
+  desc "Create user"
+  task create_user: :environment do
+    user = User.new name: "Doanh Ho", email: "doanhhnqt74@gmail.com",
+      password: "12345678", password_confirmation: "12345678"
+    user.skip_confirmation!
+    user.save!
+  end
+
   desc "Create addresses and spaces"
   task create_addresses: :environment do
     address1 = Address.create! details: "Parkson Da Nang, Hung Vuong,
