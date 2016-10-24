@@ -6,7 +6,12 @@ class Booking < ApplicationRecord
   has_one :invoice
   has_many :notifications, as: :notifiable
 
+  enum state: {pending: 0, requested: 1, rejected: 2}
+
   validates :booking_from, presence: true
   validates :duration, presence: true
   validates :quantity, presence: true
+  validates :user, presence: true
+
+  scope :current_order, -> (user) {where user_id: user.id}
 end

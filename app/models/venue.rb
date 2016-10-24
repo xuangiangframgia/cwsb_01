@@ -9,6 +9,7 @@ class Venue < ApplicationRecord
   has_many :reviews
   has_many :spaces
   has_many :working_times
+  has_many :orders
   attr_accessor :user
 
   after_create :create_user_venue

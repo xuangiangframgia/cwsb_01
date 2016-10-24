@@ -154,6 +154,10 @@ en:
       quantity: "Quantity"
     create:
       success: "Booking successfully!"
+    index:
+      your_bookings: "Your Bookings"
+      total_due: "TOTAL DUE"
+      request: "Request"
   search:
     place_holder: "Enter location"
     spaces:

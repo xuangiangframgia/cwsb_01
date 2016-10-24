@@ -3,4 +3,3 @@ default_duration: 1
 default_quantity: 1
 min_duration: 1
 min_quantity: 1
-default_from_date: Date.tomorrow
