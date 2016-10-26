@@ -7,3 +7,6 @@ working_to: "8:00"
 working_from: "17:00"
 status_open: "open"
 status_close: "close"
+default_latitude: 0
+default_longitude: 0
+default_map_zoom: 16

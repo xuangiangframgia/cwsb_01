@@ -10,7 +10,7 @@ describe "layouts/_sidebar.html.erb" do
     it {expect(rendered).to match /gi-envelope/}
     it {expect(rendered).to match /gi gi-cogwheel/}
     it {expect(rendered).to match /gi gi-exit/}
-    it {expect(rendered).to match /Search your space/}
+    it {expect(rendered).to match /Search for a space/}
     it {expect(rendered).to match /My co-working spaces/}
     it {expect(rendered).to match /Booking history/}
     it {expect(rendered).to match /Help/}
