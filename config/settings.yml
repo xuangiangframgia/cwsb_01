@@ -3,3 +3,7 @@ default_duration: 1
 default_quantity: 1
 min_duration: 1
 min_quantity: 1
+working_to: "8:00"
+working_from: "17:00"
+status_open: "open"
+status_close: "close"

@@ -5,6 +5,7 @@ class CreateWorkingTimes < ActiveRecord::Migration[5.0]
       t.time :working_from, null: false
       t.time :working_to, null: false
       t.references :venue, index: true, foreign_key: true
+      t.integer :status, null: false
 
       t.timestamps
     end

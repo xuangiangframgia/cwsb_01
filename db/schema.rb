@@ -313,6 +313,7 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.time     "working_from", null: false
     t.time     "working_to",   null: false
     t.integer  "venue_id"
+    t.integer  "status",       null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["venue_id"], name: "index_working_times_on_venue_id", using: :btree

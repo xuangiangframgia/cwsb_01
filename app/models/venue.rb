@@ -1,5 +1,5 @@
 class Venue < ApplicationRecord
-  has_one :address
+  has_one :address, inverse_of: :venue
   has_many :images, as: :imageable
   has_many :user_role_venues
   has_many :roles, through: :user_role_venues
@@ -13,6 +13,7 @@ class Venue < ApplicationRecord
   attr_accessor :user
 
   after_create :create_user_venue
+  after_create :build_working_time
 
   validates :description, presence: true
   validates :name, presence: true
@@ -21,8 +22,17 @@ class Venue < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :working_times, allow_destroy: true
 
   def create_user_venue
     user_role_venues.create user: user
+  end
+
+  def build_working_time
+    WorkingTime.day_in_weeks.each do |day, value|
+      self.working_times.create day_in_week: day,
+        working_to: Settings.working_to, working_from: Settings.working_from,
+        status: Settings.status_open
+    end
   end
 end
