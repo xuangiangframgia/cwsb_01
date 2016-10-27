@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :logged_in?, only: :create
+  before_action :require_logged_in_user, only: :create
 
   load_resource
 
   def index
-    @bookings = Booking.current_order(current_user)
+    @bookings = current_user.bookings.without_order
       .group_by{|booking| booking.space.venue}
   end
 

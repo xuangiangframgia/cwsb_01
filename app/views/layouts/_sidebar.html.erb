@@ -47,7 +47,8 @@
                 <%= link_to t("layout.my_spaces"), venues_url %>
               </li>
               <li>
-                <a href="javascript:"><%= t "layout.booking_history" %></a>
+                <%= link_to t("layout.booking_history"),
+                  booking_histories_path %>
               </li>
             </ul>
           </li>

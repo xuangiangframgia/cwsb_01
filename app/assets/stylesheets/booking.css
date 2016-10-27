@@ -1,0 +1,8 @@
+.form-alert{
+  display: none;
+  padding: 24px !important;
+}
+.image_tag{
+  width: 200px;
+  height: 100px;
+}
