@@ -11,4 +11,14 @@ module GeneralHelper
     end
     hash
   end
+
+  def logged_in?
+    unless user_signed_in?
+      if request.xhr?
+        render js: "window.location = '/users/sign_in'"
+      else
+        redirect_to new_user_session_path
+      end
+    end
+  end
 end

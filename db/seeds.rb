@@ -4,7 +4,7 @@ BookingType.create name: "WEEK"
 BookingType.create name: "MONTH"
 
 # create_user
-user = User.new name: "Doanh Ho", email: "doanhhnqt74@gmail.com",
+user = User.new name: "Test User", email: "testuser@gmail.com",
   password: "12345678", password_confirmation: "12345678"
 user.skip_confirmation!
 user.save!
