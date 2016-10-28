@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :logged_in?, only: :create
+
   load_resource
 
   def index

@@ -1,5 +1,4 @@
 class Search::SpacesController < ApplicationController
-  include GeneralHelper
   load_resource
 
   def index
