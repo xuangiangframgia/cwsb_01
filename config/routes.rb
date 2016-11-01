@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :bookings
   resources :venues do
     resources :orders
+    resource :venue_detail
     resources :venue_amenities
     resources :amenities do
       resources :service_charges

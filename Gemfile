@@ -22,6 +22,7 @@ gem "simple_form"
 gem "rmagick"
 gem "carrierwave"
 gem "cancancan", "1.10"
+gem "reform-rails"
 source "https://rails-assets.org" do
   gem "rails-assets-growl"
 end

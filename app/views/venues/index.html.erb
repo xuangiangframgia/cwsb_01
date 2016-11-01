@@ -21,21 +21,25 @@
             <div class="widget-options">
               <a href="javascript:void(0)" class="btn btn-xs btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
             </div>
-            <div class="pie-chart" data-percent="90" data-line-width="2" data-bar-color="#333333" data-track-color="#eeeeee">
-              <% unless venue.images.blank? %>
-                <%= image_tag venue.images.first.picture_url,
-                  class:"img-circle wth-80" %>
-              <% end %>
-            </div>
+            <%= link_to edit_venue_path(venue) do %>
+              <div class="pie-chart" data-percent="90" data-line-width="2" data-bar-color="#333333" data-track-color="#eeeeee">
+                <% unless venue.images.blank? %>
+                  <%= image_tag venue.images.first.picture_url,
+                    class:"img-circle wth-80" %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
           <div class="widget-extra themed-background text-center venue-info">
             <h3 class="widget-content-light">
               <strong><%= venue.name %></strong><br>
               <small><%= venue.description %></small>
             </h3>
-            <div class="widget-content-light venue-address">
-              <i class="hi hi-map-marker"></i><small><%= %></small>
-            </div>
+            <%= link_to edit_venue_path(venue) do %>
+              <div class="widget-content-light venue-address">
+                <i class="hi hi-map-marker"></i><small><%=venue.address_details %></small>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

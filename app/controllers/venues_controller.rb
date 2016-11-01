@@ -25,7 +25,7 @@ class VenuesController < ApplicationController
 
   def update
     if @venue.update_attributes venue_params
-      flash[:success] = t "flash.success_message"
+      flash[:success] = t "flash.success_detail"
       redirect_to edit_venue_path @venue, active: params[:detail]
     else
       flash[:danger] = t "flash.danger_message"
@@ -41,9 +41,8 @@ class VenuesController < ApplicationController
   private
   def venue_params
     params.require(:venue).permit(:name, :description, :phone_number, :email,
-      :website, :number_of_floors, :floor_space, :number_of_rooms, :number_of_desks,
-      address_attributes: [:details, :city, :postal_code, :street_address, :unit, :id],
-      images_attributes: [:picture], working_times_attributes: [:id,
-        :day_in_week, :working_to, :working_from, :status]).merge! user: current_user
+      :website,
+      address_attributes: [:details, :city, :postal_code, :street_address, :unit, :id])
+      .merge! user: current_user
   end
 end

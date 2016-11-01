@@ -60,13 +60,6 @@ venue2.save
 from = Time.zone.local(1, 1, 1, 8, 00, 00)
 to = Time.zone.local(1, 1, 1, 18, 00, 00)
 
-Venue.all.each do |venue|
-  WorkingTime.day_in_weeks.each do |date|
-    WorkingTime.create venue: venue, day_in_week: date.second, status: :open,
-      working_from: from, working_to: to
-  end
-end
-
 #create_price_for_space
 Price.all.destroy_all
 Space.all.each do |space|
