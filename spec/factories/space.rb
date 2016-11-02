@@ -5,5 +5,6 @@ FactoryGirl.define do
     capicity 4
     quantity 2
     description "description"
+    venue
   end
 end
