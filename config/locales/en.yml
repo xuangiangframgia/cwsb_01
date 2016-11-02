@@ -284,6 +284,7 @@ en:
       delete_successfully: "Delete amenity successfully"
       delete_error: "Delete amenity error"
   venues:
+    not_found: "Vanues is not found !"
     errors:
       nil_venue: "Can't find this venue"
       create_fail: "Have some problem when create amenity"
@@ -309,3 +310,7 @@ en:
       your_bookings: "Your booking history"
       title: "Your booking history"
       waitting: "Wait for confirm"
+  space:
+    create_success: "Create space successfully"
+    create_fail: "Oops ! Create space fail !"
+    capicity: "Capicity: "
