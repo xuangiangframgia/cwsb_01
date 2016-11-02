@@ -24,6 +24,34 @@
             id: "pac-input" %>
         <% end %>
       </div>
+      <div class = "widget">
+        <div>
+          <div class="btn-group" id = "button-filter1">
+            <label id = "label-space"><%= t ".space_type"%><span class="box"></span></label>
+            <%= link_to "#", class: "btn btn-md green", id: "desk" do %>
+              <%= t ".desk" %><span class="box"></span>
+            <% end %>
+            <%= link_to "#", class: "btn btn-md green", id: "office" do %>
+              <%= t ".private_office" %><span class="box"></span>
+            <% end %>
+            <%= link_to "#", class: "btn btn-md green", id: "meeting" do %>
+              <%= t ".meeting_room" %><span class="box"></span>
+            <% end %>
+          </div>
+          <div class="btn-group" id = "button-filter2">
+            <label id = "label-space"><%= t "term"%><span class="box"></span></label>
+            <%= link_to "#", class: "btn btn-md green", id: "day" do %>
+              <%= t "booking_types.DAY" %><span class="box"></span>
+            <% end %>
+            <%= link_to "#", class: "btn btn-md green", id: "week" do %>
+              <%= t "booking_types.WEEK" %><span class="box"></span>
+            <% end %>
+            <%= link_to "#", class: "btn btn-md green", id: "month" do %>
+              <%= t "booking_types.MONTH" %><span class="box"></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <%= hidden_field_tag "markers-on-map", @hash.to_json %>
       <%= hidden_field_tag "current_lat", Settings.default_latitude %>
       <%= hidden_field_tag "current_lng", Settings.default_latitude %>

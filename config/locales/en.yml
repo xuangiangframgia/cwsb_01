@@ -206,6 +206,11 @@ en:
       index:
         maps: "Maps"
         find_space: "Find space"
+        space_type: "Space type"
+        desk: "Desk"
+        private_office: "Prive_office"
+        meeting_room: "Meeting_room"
+        term: "Term"
       show:
         contact: "Contact"
         the_space: "The space"
