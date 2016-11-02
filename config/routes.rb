@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "static_pages/index"
+  resources :booking_histories, only: :index
+  resources :static_pages, only: :index
 
   namespace :search do
     resources :spaces
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :bookings
   resources :venues do
+    resources :orders
     resources :venue_amenities
     resources :amenities do
       resources :service_charges

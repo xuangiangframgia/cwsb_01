@@ -13,5 +13,11 @@ class Booking < ApplicationRecord
   validates :quantity, presence: true
   validates :user, presence: true
 
-  scope :current_order, -> (user) {where user_id: user.id}
+  scope :without_order, -> do
+    where order_id: nil
+  end
+
+  scope :requested, -> do
+    where.not order_id: nil
+  end
 end

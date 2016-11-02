@@ -46,9 +46,6 @@ en:
     MONTH: "month"
   date:
     day_names: [SUN, MON, TUE, WED, THU, FRI, SAT]
-  time:
-    formats:
-      time_session: "%I:%M %p"
   layout:
     base_title: "CWBS"
     site_name: "CWBS"
@@ -199,6 +196,10 @@ en:
       your_bookings: "Your Bookings"
       total_due: "TOTAL DUE"
       request: "Request"
+      click_here: "Click here"
+      more_details: " to see more details!"
+      success: "Success!"
+      fail_create_request: "Have problem when send request to space owner. Please try again!"
   search:
     place_holder: "Enter location"
     spaces:
@@ -289,3 +290,17 @@ en:
     errors:
       create: "Have problem when create service charge"
       update: "Have problem when update service charge"
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M"
+      time_session: "%I:%M %p"
+  orders:
+    success:
+      create: "Create order successfully"
+    errors:
+      create: "Have problem when create orders charge"
+  booking_histories:
+    index:
+      your_bookings: "Your booking history"
+      title: "Your booking history"
+      waitting: "Wait for confirm"

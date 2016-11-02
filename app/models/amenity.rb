@@ -4,6 +4,7 @@ class Amenity < ApplicationRecord
   attr_accessor :venue
 
   after_create :create_venue_amenity_for_venue
+
   has_many :venue_amenities, dependent: :destroy
   has_many :images, as: :imageable
   has_many :venues, through: :venue_amenities
@@ -13,7 +14,7 @@ class Amenity < ApplicationRecord
   accepts_nested_attributes_for :venue_amenities
   accepts_nested_attributes_for :service_charge
 
-  scope :select_amenities_belong_to_user, ->(venue) do
+  scope :select_amenities_belong_to_user, -> venue do
     joins(:venue_amenities).where venue_amenities: {venue_id: venue.id}
   end
 

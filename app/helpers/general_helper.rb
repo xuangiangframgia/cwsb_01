@@ -1,4 +1,5 @@
 module GeneralHelper
+
   def first_active images, image
     return "active" if images.first == image
   end
@@ -12,7 +13,7 @@ module GeneralHelper
     hash
   end
 
-  def logged_in?
+  def require_logged_in_user
     unless user_signed_in?
       if request.xhr?
         render js: "window.location = '/users/sign_in'"
@@ -20,5 +21,9 @@ module GeneralHelper
         redirect_to new_user_session_path
       end
     end
+  end
+
+  def select_price space, booking_type_id
+    space.prices.find_by_booking_type_id(booking_type_id).price
   end
 end
