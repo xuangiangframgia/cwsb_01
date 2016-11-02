@@ -23,6 +23,10 @@ gem "rmagick"
 gem "carrierwave"
 gem "cancancan", "1.10"
 gem "reform-rails"
+gem "owlcarousel-rails"
+gem "font-awesome-rails"
+gem "wow-rails"
+gem "animate-rails"
 source "https://rails-assets.org" do
   gem "rails-assets-growl"
 end

@@ -1,0 +1,108 @@
+.border-radius-0 {
+  border-radius: 0px !important;
+}
+.btn-outline {
+  background: none !important;
+  border-radius: 1px !important;
+  font-size: 16px !important;
+  width: 150px;
+  transition: border-color 0.8s linear 0s, background-color 0.8s linear 0s;
+}
+.btn-primary.btn-outline {
+  border: 1px solid #1c84c6 !important;
+  color: #1c84c6 !important;
+  &:hover {
+    background-color: #1c84c6 !important;
+    border-color: #FFF !important;
+    color: #FFF !important;
+  }
+}
+.btn-success.btn-outline {
+  border: 1px solid #27C24C !important;
+  color: #27C24C !important;
+  &:hover {
+    background-color: #27C24C !important;
+    border-color: #FFF !important;
+    color: #FFF !important;
+  }
+}
+.carousel {
+  margin-bottom: 0px !important;
+}
+.carousel-indicators .active {
+  background-color: #00c7fc;
+  border: 0;
+}
+#home-carousel .carousel-inner .item {
+  width: 100%;
+  background-size:cover;
+}
+#home-carousel .carousel-inner .item:nth-child(1) {
+  background: image-url('home_desk.jpg');
+  height: 673px;
+}
+#home-carousel .carousel-inner .item:nth-child(2) {
+  background: image-url('home_woman.jpg');
+  height: 673px;
+}
+#home-carousel .carousel-inner .item:nth-child(3) {
+  background: image-url('meeting_room.jpg');
+  height: 673px;
+}
+#home-carousel .carousel-caption {
+  left: 0;
+  top: 0;
+  z-index: 11;
+  text-align: left;
+}
+.carousel-caption > div {
+  background-color: rgba(15,116,143,0.4);
+  padding: 60px 50px 80px 20%;
+  position: absolute;
+  top: 25%;
+  width: 76%;
+}
+#home-carousel .carousel-inner h2 {
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+#home-carousel .carousel-inner p {
+  color: #FFFFFF;
+  line-height: 28px;
+  font-size: 17px;
+  margin-top: 0;
+  text-shadow:none;
+}
+#nav-arrows > a {
+  border: 1px solid #fff;
+  color: #fff;
+  display: block;
+  height: 60px;
+  line-height: 76px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 60px;
+  z-index: 20;
+  margin-top: -30px;
+  transition: all 0.3s ease 0s;
+}
+#nav-arrows > a.sl-prev {
+  left: 50px;
+}
+#nav-arrows > a.sl-next {
+  right: 50px;
+}
+#nav-arrows > a.sl-next:hover {
+  background-color: #009EE3;
+  border-color: #009EE3;
+  color: #fff;
+}
+.carousel-indicators .active {
+  background-color: #00c7fc;
+  border: 0;
+}

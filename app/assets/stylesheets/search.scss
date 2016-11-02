@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #map-container {
   width: 100%;
-  min-height: 500px;
+  min-height: 900px;
   margin: 0;
   padding: 0;
   position: relative;
@@ -187,4 +187,7 @@
   text-align: left;
   padding-left: 10px;
   padding-top: 5px;
+}
+#search-space-result {
+  overflow-y: scroll;
 }

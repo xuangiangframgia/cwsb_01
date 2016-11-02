@@ -52,7 +52,7 @@ header {
     padding: 25px 0;
     color: #ffffff;
     background: url('../img/template/ie8_opacity_dark_20.png');
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(15, 116, 143, 0.8) none repeat scroll 0 0;
     z-index: 1000;
     -webkit-transition: all ease-out 0.25s;
     transition: all ease-out 0.25s;
@@ -194,7 +194,7 @@ header nav {
 
 .site-content {
     background-color: #ffffff;
-    padding-bottom: 1px;
+    padding: 65px 0px;
 }
 
 .site-section-top {
@@ -249,12 +249,12 @@ header nav {
 /* Media Container */
 .media-container {
     position: relative;
-    height: 279px;
+    height: 325px;
     overflow: hidden;
 }
 
 .media-container > .site-section {
-    min-height: 279px;
+    min-height: 325px;
 }
 
 .media-container > .site-section,
@@ -269,7 +269,7 @@ header nav {
 .media-container > .media-image {
     left: 50%;
     width: 2560px;
-    height: 279px;
+    height: 325px;
     margin-left: -1280px;
 }
 

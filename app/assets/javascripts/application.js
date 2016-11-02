@@ -22,3 +22,5 @@
 //= require jquery
 //= require growl
 //= require bootstrap-sprockets
+//= require wow
+//= require owl.carousel
