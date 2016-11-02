@@ -35,7 +35,7 @@
           <span><i class="fa fa-chevron-right"></i></span>
         </a>
       </div>
-      <div class="row">
+      <div class="row margin-top-15">
         <div class="col-md-2 text-center">
           <%= link_to "javascript:" do %>
             <%= image_tag "placeholders/avatars/avatar2.png", alt: "Avatar", class: "img-circle" %>
@@ -54,6 +54,9 @@
             <p><%= @space.description %></p>
           </div>
         </div>
+      </div>
+      <div id="create-booking-block">
+        <%= render "bookings/new", booking: @booking %>
       </div>
       <div class="media-body line-break-block">
         <p class="push-bit">
@@ -80,7 +83,7 @@
         </p>
         <p>
           <%= link_to "javascript:", class: "btn btn-xs btn-primary" do %>
-            <i class="fa fa-file"></i> <%= t "full_venue_profile" %>
+            <i class="fa fa-file"></i> <%= t ".full_venue_profile" %>
           <% end %>
         </p>
       </div>
@@ -131,9 +134,6 @@
             <%= amenity.name %>
           </div>
         <% end %>
-      </div>
-      <div id="create-booking-block">
-        <%= render "bookings/new", booking: @booking %>
       </div>
     </div>
   </div>

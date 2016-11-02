@@ -24,12 +24,88 @@
           <nav>
             <ul class="site-nav">
               <li class="active">
-                <%= link_to t("home.name"), search_root_url %>
+                <%= link_to t("home.search"), search_root_url %>
               </li>
             </ul>
           </nav>
         </div>
       </header>
+      <div id="home-carousel" class="carousel slide" data-interval="false">
+        <ol class="carousel-indicators">
+          <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#home-carousel" data-slide-to="1"></li>
+          <li data-target="#home-carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="carousel-caption">
+              <div class="animated bounceInRight">
+                <h2><%= t ".carousel1" %></h2>
+                <p><%= t ".carousel_line" %></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-caption">
+              <div class="animated bounceInDown">
+                <h2><%= t ".carousel2" %></h2>
+                <p><%= t ".carousel_line" %></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-caption">
+              <div class="animated bounceInUp">
+                <h2><%= t ".carousel3" %></h2>
+                <p><%= t ".carousel_line" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav id="nav-arrows" class="nav-arrows hidden-xs
+          hidden-sm visible-md visible-lg">
+          <%= link_to "#home-carousel", data: {slide: "prev"},
+            class: "sl-prev hidden-xs" do %>
+            <i class="fa fa-angle-left fa-3x"></i>
+          <% end %>
+          <%= link_to "#home-carousel", data: {slide: "next"},
+            class: "sl-next hidden-xs" do %>
+            <i class="fa fa-angle-right fa-3x"></i>
+          <% end %>
+        </nav>
+      </div>
+      <section class="site-content site-section">
+        <div class="container">
+          <div class="site-block">
+            <%= form_tag search_spaces_path, method: :get,
+              id: "search-space-form" do %>
+              <div class="input-group input-group-lg" id="search-panel-home">
+              <%= text_field_tag :search, params[:search],
+                placeholder: t("search.place_holder"),
+                class: "form-control border-radius-0", id: "pac-input-home" %>
+                <div class="input-group-btn">
+                  <%= button_tag class: "btn btn-primary border-radius-0" do %>
+                    <i class="fa fa-search"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% unless user_signed_in? %>
+            <div class="site-block text-center">
+              <%= link_to new_user_session_url,
+                class: "btn btn-lg btn-success btn-outline" do %>
+                <%= t "layout.login" %> <i class="fa fa-sign-in" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to new_user_registration_url,
+                class: "btn btn-lg btn-primary btn-outline" do %>
+                <%= t "layout.signup" %> <i class="fa fa-plus" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          <% end %>
+          <hr>
+        </div>
+      </section>
       <div class="media-container">
         <section class="site-section site-section-light site-section-top">
           <div class="container text-center">
@@ -42,97 +118,6 @@
           </div>
         </section>
         <%= image_tag "home/store_home.jpg", class: "media-image animation-pulseSlow" %>
-      </div>
-      <section class="site-content site-section">
-        <div class="container">
-          <div class="site-block">
-            <%= form_tag search_spaces_path, method: :get,
-              id: "search-space-form" do %>
-              <div class="input-group input-group-lg" id="search-panel-home">
-              <%= text_field_tag :search, params[:search],
-                placeholder: t("search.place_holder"),
-                class: "form-control", id: "pac-input-home" %>
-                <div class="input-group-btn">
-                  <%= button_tag class: "btn btn-primary" do %>
-                    <i class="fa fa-search"></i>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <% unless user_signed_in? %>
-            <div class="site-block text-center">
-              <%= link_to new_user_session_url,
-                class: "btn btn-lg btn-success" do %>
-                  <i class="fa fa-smile-o"></i> <%= t "layout.login" %>
-              <% end %>
-              <%= link_to new_user_registration_url,
-                class: "btn btn-lg btn-primary" do %>
-                  <i class="fa fa-plus"></i> <%= t "layout.signup" %>
-              <% end %>
-            </div>
-          <% end %>
-          <hr>
-        </div>
-      </section>
-      <div id="home-carousel" class="carousel carousel-home slide" data-ride="carousel" data-interval="5000">
-        <div class="carousel-inner">
-          <div class="active item">
-            <section class="site-section site-section-light site-section-top themed-background-default">
-              <div class="container">
-                <h1 class="text-center animation-slideDown hidden-xs">
-                  <strong><%= t ".carousel1_line1" %></strong>
-                </h1>
-                <h2 class="text-center animation-slideUp push hidden-xs">
-                  <%= t ".carousel1_line2" %>
-                </h2>
-                <p class="text-center animation-fadeIn">
-                  <%= image_tag "home/home_desk.jpg" %>
-                </p>
-              </div>
-            </section>
-          </div>
-          <div class="item">
-            <section class="site-section site-section-light site-section-top themed-background-fire">
-              <div class="container">
-                <h1 class="text-center animation-fadeIn360 hidden-xs">
-                  <strong><%= t ".carousel2_line1" %></strong>
-                </h1>
-                <h2 class="text-center animation-fadeIn360 push hidden-xs">
-                  <%= t ".carousel2_line2" %>
-                </h2>
-                <p class="text-center animation-fadeInLeft">
-                  <%= image_tag "home/home_woman.jpg" %>
-                </p>
-              </div>
-            </section>
-          </div>
-          <div class="item">
-            <section class="site-section site-section-light site-section-top themed-background-amethyst">
-              <div class="container">
-                <h1 class="text-center animation-hatch hidden-xs">
-                  <strong><%= t ".carousel3_line1" %></strong>
-                </h1>
-                <h2 class="text-center animation-hatch push hidden-xs">
-                    <%= t ".carousel3_line2" %>
-                </h2>
-                <p class="text-center animation-hatch">
-                  <%= image_tag "home/meeting_room.jpg" %>
-                </p>
-              </div>
-            </section>
-          </div>
-        </div>
-        <a class="left carousel-control" href="#home-carousel" data-slide="prev">
-          <span>
-            <i class="fa fa-chevron-left"></i>
-          </span>
-        </a>
-        <a class="right carousel-control" href="#home-carousel" data-slide="next">
-          <span>
-            <i class="fa fa-chevron-right"></i>
-          </span>
-        </a>
       </div>
       <section class="site-content site-section">
         <div class="container">
