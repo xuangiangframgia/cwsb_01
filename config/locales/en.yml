@@ -206,6 +206,9 @@ en:
       more_details: " to see more details!"
       success: "Success!"
       fail_create_request: "Have problem when send request to space owner. Please try again!"
+      request_all: "Request all"
+      x: "×"
+      title_toogle: "Delete invoice"
   search:
     place_holder: "Enter location"
     spaces:
@@ -227,6 +230,7 @@ en:
         open_hours: "Open hours"
         booking: "Booking"
   errors:
+    blank: "Your %{type} is empty"
     spaces:
       no_result: "No spaces found"
   amenities:
@@ -318,3 +322,5 @@ en:
     create_success: "Create space successfully"
     create_fail: "Oops ! Create space fail !"
     capicity: "Capicity: "
+    content:
+      title_toogle: "Delete invoice"

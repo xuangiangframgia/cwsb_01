@@ -4,10 +4,53 @@ BookingType.create name: "Week"
 BookingType.create name: "Month"
 
 # create_user
-user = User.new name: "Test User", email: "testuser@gmail.com",
+user = User.new name: "Test User", email: "testuser1@gmail.com",
   password: "password", password_confirmation: "password"
 user.skip_confirmation!
 user.save!
+
+# create_user
+user = User.new name: "Test User", email: "testuser2@gmail.com",
+  password: "password", password_confirmation: "password"
+user.skip_confirmation!
+user.save!
+
+#Create price_types
+3.times do |n|
+  case n
+  when 0
+    content = "day"
+  when 1
+    content = "month"
+  when 2
+    content = "year"
+  end
+  PriceType.create! content: content
+end
+
+#Create default amenity
+5.times do |n|
+  case n
+  when 0
+    name = "WiFi"
+    description = "We will service you the highest speed WiFi"
+  when 1
+    name = "Cafe/ Restaurant"
+    description = "We will service you truly Cafe"
+  when 2
+    name = "Coffee/ Tea/ Filtered Water"
+    description = "We have coffee/ tea/ filtered water"
+  when 3
+    name = "Pets allowed"
+    description = "Pet is welcome in our spaces"
+  when 4
+    name = "Lockers"
+    description = "Everyone will have personal locker when come here"
+  end
+  amenity = Amenity.create! name: name, description: description, is_free: true,
+    is_default: true
+  ServiceCharge.create! amenity_id: amenity.id, price_type_id: 1
+end
 
 # create_address
 address1 = Address.create! details: "Parkson Da Nang, Hung Vuong,

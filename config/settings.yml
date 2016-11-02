@@ -10,3 +10,15 @@ status_close: "close"
 default_latitude: 0
 default_longitude: 0
 default_map_zoom: 16
+span_warning: "warning"
+span_success: "success"
+span_danger: "danger"
+reject_history: "Reject history"
+pending_history: "Pending history"
+accept_history: "Accept history"
+requested: 1
+accepted: 2
+rejected: 3
+pending: "pending"
+reject: "reject"
+accept: "accept"

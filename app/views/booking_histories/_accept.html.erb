@@ -1,0 +1,14 @@
+<% if @rejects.blank? %>
+  <p><%= t "errors.blank", type: Settings.accept_history %></p>
+<% else %>
+  <% @accepts.each_with_index do |venue, index| %>
+    <%= hidden_field_tag "venue_id",
+      venue.first.id, id: "venue_id-#{Settings.accept}-#{index}" %>
+    <%= hidden_field_tag "times",
+      @accepts.length, id: "times-#{Settings.accept}" %>
+    <%= hidden_field_tag "times_child", venue.second.length,
+      id: "times-child-#{Settings.accept}-#{venue.first.id}" %>
+    <%= render "content", venue: venue,
+      index: index, type: "#{Settings.accept}" %>
+  <% end %>
+<% end %>

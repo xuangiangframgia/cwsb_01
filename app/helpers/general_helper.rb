@@ -26,4 +26,14 @@ module GeneralHelper
   def select_price space, booking_type_id
     space.prices.find_by_booking_type_id(booking_type_id).price
   end
+
+  def display_state booking
+    if booking.requested?
+      Settings.span_warning
+    elsif booking.accepted?
+      Settings.span_success
+    else
+      Settings.span_danger
+    end
+  end
 end

@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20161019015247) do
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                        null: false
     t.string   "description"
-    t.string   "quanity"
     t.boolean  "is_free",     default: false
     t.boolean  "is_default",  default: false
     t.datetime "created_at",                  null: false
