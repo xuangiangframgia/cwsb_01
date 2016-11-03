@@ -2,29 +2,46 @@ require "rails_helper"
 
 RSpec.describe SpacesController, type: :controller do
   let(:space) do
-    mock_model Space, capicity: 5, quantity: 5, description: "abcd",
-      space_type: 1, size: 100
+    mock_model Space, space: space, venue: venue
   end
-  before(:each) do
-    login_with create(:user)
+  let(:venue) {FactoryGirl.create(:venue)}
+
+  before do
+    sign_in FactoryGirl.create(:user)
+  end
+
+  describe "GET #index" do
+    let(:spaces) {FactoryGirl.create(:spaces, venue: venue)}
+    it "load success" do
+      get :index, params: {venue_id: venue.id}
+      expect(response).to render_template "index"
+    end
+
+    it "load error venues" do
+      get :index, params: {venue_id: 0}
+      expect(flash[:danger]).not_to be_empty
+      response.should redirect_to venues_path
+    end
   end
 
   describe "GET #new" do
     it "should create space" do
-      get :new
+      get :new, params: {venue_id: venue.id}
       expect(response).to render_template "new"
     end
   end
 
   describe "POST #create" do
     it "should created space" do
-      post :create, space: {capicity: space}
+      post :create, {venue_id: venue,
+        space: FactoryGirl.attributes_for(:space, venue_id: venue.id)}
       response.should redirect_to venue_spaces_path
     end
 
     it "don't created space" do
-      post :create, space: {capicity: nil}
-      expect(flash[:warning]).not_to be_empty
+      post :create, {venue_id: venue,
+        space: FactoryGirl.attributes_for(:space, venue_id: venue.id, size: nil)}
+      expect(flash[:danger]).not_to be_empty
       expect(response).to render_template "new"
     end
   end
