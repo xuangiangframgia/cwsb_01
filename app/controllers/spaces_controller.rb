@@ -1,7 +1,7 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_venue, only: [:new, :index, :create]
-  before_action :load_booking_type, only: [:new, :create]
+  before_action :load_booking_types, only: [:new, :create]
   load_resource
 
   def index

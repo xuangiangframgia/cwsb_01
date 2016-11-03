@@ -36,4 +36,23 @@ module GeneralHelper
       Settings.span_danger
     end
   end
+
+  def check_or_uncheck_checkbox booking_state
+    if booking_state == "Rejected" || booking_state == "Pending"
+      return false
+    else
+      return true
+    end
+  end
+
+  def check_reject_or_accept booking
+    case
+    when booking.rejected?
+      "rejected-#{booking.id}"
+    when booking.accepted?
+      "accepted-#{booking.id}"
+    else
+      "requested-#{booking.id}"
+    end
+  end
 end

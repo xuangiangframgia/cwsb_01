@@ -13,6 +13,18 @@ class BookingsController < ApplicationController
     @booking.save
   end
 
+  def update
+    respond_to do |format|
+      @booking.update state: params[:state]
+      format.json do
+        render json: {
+          state: @booking.state,
+          flash: I18n.t("flash.success_message")
+        }
+      end
+    end
+  end
+
   private
   def booking_params
     params.require(:booking).permit(:space_id, :booking_from, :duration,

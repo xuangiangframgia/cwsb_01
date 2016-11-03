@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :store_bookings, only: [:show, :update]
+
   resources :booking_histories, only: :index
   resources :static_pages, only: :index
 
