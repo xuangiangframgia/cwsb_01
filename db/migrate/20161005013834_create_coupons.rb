@@ -10,8 +10,10 @@ class CreateCoupons < ActiveRecord::Migration[5.0]
       t.references :space, index: true, foreign_key: true
       t.references :quantity, index: true, foreign_key: true
       t.references :booking_type, index: true, foreign_key: true
+      t.datetime "deleted_at"
 
       t.timestamps
     end
+    add_index :coupons, :deleted_at
   end
 end

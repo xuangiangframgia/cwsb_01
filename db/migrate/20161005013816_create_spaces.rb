@@ -8,8 +8,10 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.integer :quantity, null: false
       t.text :description, null: false
       t.references :venue, index: true, foreign_key: true
+      t.datetime "deleted_at"
 
       t.timestamps
     end
+    add_index :spaces, :deleted_at
   end
 end

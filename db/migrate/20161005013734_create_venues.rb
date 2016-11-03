@@ -10,8 +10,10 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.integer :number_of_rooms
       t.integer :number_of_desks
       t.text :description, null: false
+      t.datetime "deleted_at"
 
       t.timestamps
     end
+    add_index :venues, :deleted_at
   end
 end

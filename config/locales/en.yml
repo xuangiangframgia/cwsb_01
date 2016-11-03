@@ -289,6 +289,10 @@ en:
       nil_venue: "Can't find this venue"
       create_fail: "Have some problem when create amenity"
       load_fail: "Don't have any venue in store"
+    index:
+      edit_venue: "Edit"
+      delete_venue: "Delete"
+      confirm_delete: "Are you sure?"
   service_charges:
     success:
       create: "Create service charge successfully"

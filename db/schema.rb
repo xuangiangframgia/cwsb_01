@@ -73,9 +73,11 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "space_id"
     t.integer  "booking_type_id"
     t.integer  "order_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["booking_type_id"], name: "index_bookings_on_booking_type_id", using: :btree
+    t.index ["deleted_at"], name: "index_bookings_on_deleted_at", using: :btree
     t.index ["order_id"], name: "index_bookings_on_order_id", using: :btree
     t.index ["space_id"], name: "index_bookings_on_space_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -115,9 +117,11 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "space_id"
     t.integer  "quantity_id"
     t.integer  "booking_type_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["booking_type_id"], name: "index_coupons_on_booking_type_id", using: :btree
+    t.index ["deleted_at"], name: "index_coupons_on_deleted_at", using: :btree
     t.index ["quantity_id"], name: "index_coupons_on_quantity_id", using: :btree
     t.index ["space_id"], name: "index_coupons_on_space_id", using: :btree
   end
@@ -187,9 +191,11 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.float    "price",           limit: 24, null: false
     t.integer  "space_id"
     t.integer  "booking_type_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["booking_type_id"], name: "index_prices_on_booking_type_id", using: :btree
+    t.index ["deleted_at"], name: "index_prices_on_deleted_at", using: :btree
     t.index ["space_id"], name: "index_prices_on_space_id", using: :btree
   end
 
@@ -204,8 +210,10 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "rate"
     t.integer  "user_id"
     t.integer  "venue_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_reviews_on_deleted_at", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_reviews_on_venue_id", using: :btree
   end
@@ -236,8 +244,10 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "quantity",                  null: false
     t.text     "description", limit: 65535, null: false
     t.integer  "venue_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.index ["deleted_at"], name: "index_spaces_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_spaces_on_venue_id", using: :btree
   end
 
@@ -245,8 +255,10 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "user_id"
     t.integer  "venue_id"
     t.integer  "role_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_user_role_venues_on_deleted_at", using: :btree
     t.index ["role_id"], name: "index_user_role_venues_on_role_id", using: :btree
     t.index ["user_id"], name: "index_user_role_venues_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_user_role_venues_on_venue_id", using: :btree
@@ -290,6 +302,7 @@ ActiveRecord::Schema.define(version: 20161019015247) do
   create_table "venue_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "amenity_id"
     t.integer  "venue_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["amenity_id"], name: "index_venue_amenities_on_amenity_id", using: :btree
@@ -306,8 +319,10 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "number_of_rooms"
     t.integer  "number_of_desks"
     t.text     "description",      limit: 65535, null: false
+    t.datetime "deleted_at"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.index ["deleted_at"], name: "index_venues_on_deleted_at", using: :btree
   end
 
   create_table "working_times", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -316,8 +331,10 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.time     "working_to",   null: false
     t.integer  "venue_id"
     t.integer  "status",       null: false
+    t.datetime "deleted_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["deleted_at"], name: "index_working_times_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_working_times_on_venue_id", using: :btree
   end
 
