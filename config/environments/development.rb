@@ -62,4 +62,20 @@ Rails.application.configure do
     password:             ENV["gmail_password"],
     authentication:       "plain"
   }
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    Bullet.add_footer = true
+    # Detect N+1 queries
+    # Bullet.n_plus_one_query_enable = false
+    # Detect eager-loaded associations which are not used
+    Bullet.unused_eager_loading_enable = false
+    # Detect unnecessary COUNT queries which could be avoided
+    # with a counter_cache
+    Bullet.counter_cache_enable = false
+  end
 end
