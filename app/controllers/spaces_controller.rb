@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_venue, only: [:new, :index]
+  load_resource
 
   def index
     @spaces = @venue.spaces
@@ -18,6 +19,13 @@ class SpacesController < ApplicationController
     else
       flash.now[:danger] = t "space.create_fail"
       render :new
+    end
+  end
+
+  def destroy
+    @space.destroy
+    respond_to do |format|
+      format.js
     end
   end
 
