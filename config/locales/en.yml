@@ -25,6 +25,7 @@ en:
   check_all: "Check all"
   working_times: "Working times"
   new_venue: "Create Venue"
+  new_space: "Create space"
   markers: "Markers"
   venue_description: "venue description"
   map: "Map"
@@ -329,3 +330,9 @@ en:
     capicity: "Capicity: "
     content:
       title_toogle: "Delete invoice"
+    edit: "Edit"
+    delete: "Delete"
+    per: "Per "
+    price: "Pricing information"
+    info: "Space infomation"
+    confirm_delete: "Are you sure?"

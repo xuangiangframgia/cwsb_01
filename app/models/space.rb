@@ -13,7 +13,10 @@ class Space < ApplicationRecord
   enum space_type: {desk: 0, prive_office: 1, meeting_room: 2}
 
   validates :space_type, presence: true
-  validates :size, presence: true
-  validates :capicity, presence: true
-  validates :quantity, presence: true
+  validates :size, presence: true, numericality: {greater_than: 0}
+  validates :capicity, presence: true, numericality: {greater_than: 0}
+  validates :quantity, presence: true, numericality: {greater_than: 0}
+
+  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :prices, allow_destroy: true
 end

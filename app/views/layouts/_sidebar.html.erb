@@ -9,9 +9,9 @@
       <% end %>
       <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
         <div class="sidebar-user-avatar">
-          <a href="javascript:">
+          <%= link_to search_root_path do %>
             <%= image_tag "placeholders/avatars/avatar2.png" %>
-          </a>
+          <% end %>
         </div>
         <% if user_signed_in? %>
           <div class="sidebar-user-name"><%= current_user.name %></div>

@@ -11,7 +11,7 @@ $(document).ready(function(){
       $('.status').not(this).html("close");
     }
   });
-  $('input:checkbox').on('click', function(){
+  $('input:checkbox.check_working').on('click', function(){
     if ($(this).prop('checked')){
       $('.'+$(this).attr('id')).replaceWith("<label class='form-label status label label-primary "+ $(this).attr('id') +"'>open</label>");
     }

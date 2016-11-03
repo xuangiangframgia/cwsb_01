@@ -15,7 +15,7 @@
     <div class="col-md-1">
       <%= form_working_times.input :status, as: :boolean,
         checked_value: "open", unchecked_value: "close",
-        label: false,  input_html: {id: "label_#{form_working_times.object.id }"} %>
+        label: false,  input_html: {id: "label_#{form_working_times.object.id }", class: "check_working"} %>
     </div>
     <div class="col-md-1">
       <%= label_status form_working_times.object.model %>

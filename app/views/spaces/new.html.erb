@@ -1,18 +1,37 @@
+<%= javascript_include_tag "map" %>
 <div class="row">
   <div class="col-md-9">
     <div class="col-md-12">
-      <p class="lead"><%= t "new_venue" %></p>
+      <p class="lead"><%= t "new_space" %></p>
     </div>
-    <div class="col-md-12">
-      <%= simple_form_for [:venue, @space] do |f| %>
-        <%= f.input :space_type, as: :select, collection: Space.space_types.keys %>
-        <%= f.input :size, input_html: {class: "form-control"} %>
-        <%= f.input :capicity, input_html: {class: "form-control"} %>
-        <%= f.input :quantity, input_html: {class: "form-control"} %>
-        <%= f.input :description, input_html: {class: "form-control"} %>
+    <div class="col-md-12 space-form">
+      <%= simple_form_for [@venue, @space] do |f| %>
+        <legend><span class="number">1</span><%= t "space.info" %></legend>
+        <%= f.simple_fields_for :images do |form_image| %>
+          <%= form_image.input :picture, input_html: {class: "margin-bot-15"} %>
+        <% end %>
+        <%= f.input :space_type, as: :select, collection: Space.space_types.keys,
+          input_html: {class: "form-control"} %>
+        <%= f.input :size, input_html: {class: "form-control margin-bot-15"} %>
+        <%= f.input :capicity, input_html: {class: "form-control margin-bot-15"} %>
+        <%= f.input :quantity, input_html: {class: "form-control margin-bot-15"} %>
+        <%= f.input :description, input_html: {class: "form-control margin-bot-15"} %>
         <%= f.input :venue_id, as: :hidden, input_html: {value: @venue.id,
           class: "form-control"} %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <legend><span class="number">2</span><%= t "space.price" %></legend>
+        <% @booking_types.each do |booking_type| %>
+          <%= f.simple_fields_for :prices do |price| %>
+            <%= t "space.per" %><%= booking_type.name %>
+            <%= price.check_box :_destroy,
+              {checked: false, class: "margin-bot-15 check-booking",
+              id: "booking-#{booking_type.id}"}, 0, 1 %>
+            <%= price.input :price, disabled: true,
+              input_html: {class: "form-control margin-bot-15 booking-#{booking_type.id}"} %>
+            <%= price.input :booking_type_id, as: :hidden,
+              input_html: {value: booking_type.id} %>
+          <% end %>
+        <% end %>
+        <%= f.button :submit, class: "btn-submit" %>
       <% end %>
     </div>
   </div>
@@ -27,3 +46,4 @@
     </div>
   </div>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyJ3SWFP8U5Xmqe3H3X_iOsR1nw1v6_Q&&libraries=places"></script>
