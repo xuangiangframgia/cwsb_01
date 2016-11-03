@@ -32,6 +32,7 @@ source "https://rails-assets.org" do
 end
 
 group :development, :test do
+  gem "bullet"
   gem "byebug", platform: :mri
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.5"
@@ -50,7 +51,6 @@ group :test do
   gem "database_cleaner"
   gem "rails-controller-testing"
   gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers"
-  gem "rails-controller-testing"
   gem "simplecov", require: false
   gem "rspec-activemodel-mocks"
 end

@@ -35,7 +35,6 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    @venue.images.build if @venue.images.blank?
   end
 
   private
