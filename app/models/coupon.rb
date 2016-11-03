@@ -1,4 +1,6 @@
 class Coupon < ApplicationRecord
+  acts_as_paranoid
+
   has_many :invoices
 
   belongs_to :quantity

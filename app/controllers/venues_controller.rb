@@ -37,6 +37,13 @@ class VenuesController < ApplicationController
   def edit
   end
 
+  def destroy
+    @venue.destroy
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
   def venue_params
     params.require(:venue).permit(:name, :description, :phone_number, :email,

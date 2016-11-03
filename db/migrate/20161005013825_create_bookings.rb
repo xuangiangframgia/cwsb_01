@@ -9,7 +9,9 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.references :space, index: true, foreign_key: true
       t.references :booking_type, index: true, foreign_key: true
       t.references :order, index: true, foreign_key: true
+      t.datetime "deleted_at"
       t.timestamps
     end
+    add_index :bookings, :deleted_at
   end
 end

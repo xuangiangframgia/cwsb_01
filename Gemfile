@@ -27,6 +27,7 @@ gem "owlcarousel-rails"
 gem "font-awesome-rails"
 gem "wow-rails"
 gem "animate-rails"
+gem "paranoia", "~> 2.2.0.pre"
 source "https://rails-assets.org" do
   gem "rails-assets-growl"
 end
