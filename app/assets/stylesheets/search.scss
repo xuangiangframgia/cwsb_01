@@ -32,11 +32,12 @@
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 300px;
+  width: 90%;
+  box-shadow: none;
 }
 
 #pac-input:focus {
-  border-color: #4d90fe;
+  border-color: #FFF;
 }
 
 .pac-container {

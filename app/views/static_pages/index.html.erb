@@ -23,9 +23,23 @@
           <% end %>
           <nav>
             <ul class="site-nav">
-              <li class="active">
-                <%= link_to t("home.search"), search_root_url %>
-              </li>
+              <% if user_signed_in? %>
+                <li class="active">
+                  <%= link_to "#" do %>
+                    <%= t "home.hello" %><%= current_user.name %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to t("layout.logout"), destroy_user_session_path,
+                    method: :delete %>
+                </li>
+              <% else %>
+                <li class="active">
+                  <%= link_to "javascript:;" do %>
+                    <%= t "home.hello" %><%= t "home.guest" %>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </nav>
         </div>
