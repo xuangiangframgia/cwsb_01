@@ -14,12 +14,10 @@ class Amenity < ApplicationRecord
   accepts_nested_attributes_for :venue_amenities
   accepts_nested_attributes_for :service_charge
 
-  scope :select_amenities_belong_to_user, -> venue do
-    joins(:venue_amenities).where venue_amenities: {venue_id: venue.id}
-  end
+  scope :default, -> {where is_default: true}
 
   def create_venue_amenity_for_venue
-    @venue_amenity = VenueAmenity.create venue_id: self.venue.id,
-      amenity_id: self.id
+    VenueAmenity.create venue_id: self.venue.id,
+      amenity_id: self.id unless self.is_default?
   end
 end

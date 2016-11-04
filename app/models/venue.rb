@@ -16,6 +16,7 @@ class Venue < ApplicationRecord
 
   after_create :create_user_venue
   after_create :build_working_time
+  after_create :add_default_amenity
 
   validates :description, presence: true
   validates :name, presence: true
@@ -35,6 +36,13 @@ class Venue < ApplicationRecord
       self.working_times.create day_in_week: day,
         working_to: Settings.working_to, working_from: Settings.working_from,
         status: Settings.status_open
+    end
+  end
+
+  def add_default_amenity
+    default_amenities = Amenity.default
+    default_amenities.each do |default_amenity|
+      venue_amenities.create venue_id: id, amenity_id: default_amenity.id
     end
   end
 end

@@ -1,25 +1,6 @@
 <% provide :title, t(".your_bookings") %>
 <%= javascript_include_tag "booking/index.js" %>
-<div class="content-header">
-  <div class="header-section">
-    <h1>
-      <i class="gi gi-usd"></i><%= t ".your_bookings" %>
-    </h1>
-  </div>
-</div>
-<div class="alert alert-success form-alert" id="form-alert-success">
-  <strong><%= t ".success" %></strong>
-  <%= link_to t(".click_here"), booking_histories_path %>
-  <%= t ".more_details" %>
-  <a href="#" class="close"
-    data-dismiss="alert" aria-label="close" title="close">×</a>
-</div>
-<div class="alert alert-danger form-alert" id="form-alert-fail">
-  <strong><%= t ".success" %></strong>
-  <%= t ".fail_create_request" %>
-  <a href="#" class="close"
-    data-dismiss="alert" aria-label="close" title="close">×</a>
-</div>
+<%= render "header" %>
 <% @bookings.each_with_index do |venue, index| %>
   <%= hidden_field_tag "venue_id", venue.first.id , class: "venue_id-#{index}" %>
   <%= hidden_field_tag "times", @bookings.length , class: "times" %>
@@ -29,7 +10,7 @@
     <div class="block-title">
       <div class="block-options pull-right">
         <a href="javascript:" class="btn btn-sm btn-alt btn-default"
-          data-toggle="tooltip" title="Delete invoice">
+          data-toggle="tooltip" title="<%= t ".title_toogle" %>">
           <i class="fa fa-times"></i>
         </a>
       </div>
@@ -60,7 +41,7 @@
                 <span class="label label-info">
                   <i class="fa fa-clock-o"></i>
                   <%= booking.duration %>
-                  <%= booking.booking_type.name %>
+                  <%= booking.booking_type_name %>
                 </span>
                 <a href="javascript:void(0)" data-toggle="tooltip"
                   title="" class="btn btn-xs btn-danger"
@@ -109,7 +90,7 @@
         <%= hidden_field_tag "booking_ids",
           venue.second, id: "booking_ids" %>
         <%= button_tag t(".request"),
-          class: "btn btn-danger button-request", id: venue.first.id %>
+          class: "btn btn-danger button-request", id: "#{venue.first.id}-#{index}" %>
       </div>
     </div>
   </div>

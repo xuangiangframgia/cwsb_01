@@ -14,7 +14,7 @@ class Order < ApplicationRecord
     @booking_ids = booking_ids.split(" ")
     @booking_ids.each do |booking_id|
       booking = Booking.find_by id: booking_id
-      booking.update_attributes order_id: self.id
+      booking.update_attributes order_id: self.id, state: "requested"
     end
   end
 end

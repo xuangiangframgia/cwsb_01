@@ -2,10 +2,21 @@ $(document).ready(function(){
   var times = $('.times').val();
   var total_prices = [];
   var booking_ids = [];
+  var request_all = $('#button-request-all');
   display_total_price_and_pass_value(times, total_prices, booking_ids);
   hide_flash();
-  send_request(total_prices, booking_ids);
+  send_request(total_prices,booking_ids);
+  request_all.on('click', function(){
+    create_order_for_all(times, total_prices, booking_ids);
+  });
 });
+
+function create_order_for_all(times,total_prices, booking_ids){
+  for(var i = 0; i< times; i++){
+    var venue_id = $('.venue_id-' + i).val();
+    create_order(venue_id, total_prices[i+1], booking_ids[i+1]);
+  }
+}
 
 function display_total_price_and_pass_value(times, total_prices, booking_ids){
   for(var i = 0; i< times; i++){
@@ -40,8 +51,10 @@ function hide_flash(){
 function send_request(total_prices, booking_ids){
   var list_button_request = $('.button-request');
   list_button_request.click(function(){
-    var this_venue_id = this.id;
-    create_order(this_venue_id, total_prices[this_venue_id], booking_ids[this_venue_id]);
+    var btn_clicked = this.id.split('-');
+    var venue_id = btn_clicked[0];
+    var numberic = parseFloat(btn_clicked[1]) + 1;
+    create_order(venue_id, total_prices[numberic], booking_ids[numberic]);
   });
 }
 
@@ -54,7 +67,8 @@ function create_order(venue_id, total_price, booking_ids){
     success: function(data){
       if(data.message == "success"){
         $('#form-border-' + venue_id).slideToggle('slow');
-        $('#form-alert-success').slideToggle('slow');
+        $('#form-border-' + venue_id).attr('id','done');
+        $('#form-alert-success').show();
         $('html, body').animate({scrollTop: '0px'}, 'slow');
       }else{
         $('#form-alert-fail').slideToggle('slow');
@@ -65,4 +79,3 @@ function create_order(venue_id, total_price, booking_ids){
     }
   });
 }
-
