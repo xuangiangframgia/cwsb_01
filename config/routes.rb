@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   root "static_pages#index"
   devise_for :admins
   devise_for :users
-
   resources :bookings
   resources :venues do
-    resources :spaces
+    resources :spaces do
+      resources :prices
+    end
     resources :orders
     resource :venue_detail
     resources :venue_amenities
