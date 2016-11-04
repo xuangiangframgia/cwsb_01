@@ -71,6 +71,9 @@
           <% end %>
         </p>
       </div>
+      <div id="create-booking-block">
+        <%= render "bookings/new", booking: @booking %>
+      </div>
       <div class="media-body line-break-block">
         <p class="push-bit">
           <strong><%= t ".the_venue" %></strong>
