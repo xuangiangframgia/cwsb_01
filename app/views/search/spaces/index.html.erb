@@ -17,7 +17,7 @@
       <h2><strong><%= t "find_space" %></strong></h2>
     </div>
     <div class="block-full">
-      <div class="widget padding-bot-10 text-center">
+      <div class="widget padding-bot-10">
         <%= form_tag search_spaces_path, method: :get, remote: true,
           id: "search-space-form" do %>
           <%= text_field_tag :search, params[:search],

@@ -80,6 +80,7 @@ en:
     login: "Login"
     signup: "Sign up"
     cwsb: "Co-W-Space"
+    logout: "Logout"
   home:
     coworking_space: "Co-working space "
     sharing: "Sharing"
@@ -93,6 +94,8 @@ en:
     privacy_policy: "Privacy Policy"
     follow_us: "Follow Us"
     legal: "Legal"
+    hello: "Hello,"
+    guest: "guest"
   static_pages:
     index:
       site_des_line1: "Find your co-workingspace"
