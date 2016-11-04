@@ -90,15 +90,15 @@
 }
 
 .green {
-  border: 1px solid #00756c;
-  color: #00756c;
+  border: 1px solid #1bbae1;
+  color: #fff;
 }
 
 .green:hover:before,
 .green:hover:after,
 .green:hover .box:before,
 .green:hover .box:after {
-  background: #00756c;
+  background: #1bbae1;
   width: 50%;
   height: 50%;
 }
@@ -132,15 +132,15 @@
 }
 
 .green {
-  border: 1px solid #00756c;
-  color: #00756c;
+  border: 1px solid #1bbae1;
+  color: black;
 }
 
 .green:hover:before,
 .green:hover:after,
 .green:hover .box:before,
 .green:hover .box:after{
-  background: #00756c;
+  background: #1bbae1;
   width: 50%;
   height: 50%;
 }
@@ -157,28 +157,34 @@
 }
 
 #desk {
-  width: 33%;
-}
-
-#day {
-  width: 33%;
-}
-
-#week {
-  width: 33%;
-}
-
-#month {
-  width: 33%;
+  width: 23%;
+  text-align: center;
+  &:focus {
+    background-color: #1bbae1;
+  };
 }
 
 #meeting {
-  margin-left: 6px;
-  width: 34%;
+  width: 27%;
+  text-align: center;
+  &:focus {
+    background-color: #1bbae1;
+  };
 }
 
 #office {
-  width: 30%;
+  width: 27%;
+  &:focus {
+    background-color: #1bbae1;
+  };
+}
+
+#all {
+  width: 23%;
+  text-align: center;
+  &:focus {
+    background-color: #1bbae1;
+  };
 }
 
 #label-space {
@@ -188,6 +194,15 @@
   padding-left: 10px;
   padding-top: 5px;
 }
+
 #search-space-result {
   overflow-y: scroll;
+}
+
+#price {
+  display: none;
+}
+
+#show-space {
+  display: none;
 }

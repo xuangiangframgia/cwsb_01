@@ -66,5 +66,15 @@ $(function(){
       handler.map.centerOn(centre_pos);
       handler.getMap().setZoom(17);
     };
+
+    $('.btn-filter').on('click', function () {
+      var target = $(this).data('target');
+      if (target != 'all') {
+        $('#search-space-result #space_type').css('display', 'none');
+        $('#search-space-result #space_type[data-status="' + target + '"]').fadeIn('slow');
+      } else {
+        $('#search-space-result #space_type').css('display', 'none').fadeIn('slow');
+      }
+    });
   });
 });

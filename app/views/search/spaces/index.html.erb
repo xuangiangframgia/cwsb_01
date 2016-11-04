@@ -1,7 +1,6 @@
-<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCiNNIpP8sLtpWlcwLuv_ZqA1NQnbtm_Dk&libraries=places'></script>
-<script src='//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js'></script>
-<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'>
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiNNIpP8sLtpWlcwLuv_ZqA1NQnbtm_Dk&libraries=places"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 <%= javascript_include_tag "search/search.js" %>
 <div class="row">
   <div class="col-md-6" style="border:1">
@@ -29,26 +28,21 @@
         <div>
           <div class="btn-group" id = "button-filter1">
             <label id = "label-space"><%= t ".space_type"%><span class="box"></span></label>
-            <%= link_to "#", class: "btn btn-md green", id: "desk" do %>
+            <%= link_to "#", class: "btn btn-md btn-filter green", id: "desk",
+              data: {target: "desk"} do %>
               <%= t ".desk" %><span class="box"></span>
             <% end %>
-            <%= link_to "#", class: "btn btn-md green", id: "office" do %>
+            <%= link_to "#", class: "btn btn-md btn-filter green", id: "office",
+              data: {target: "prive_office"}  do %>
               <%= t ".private_office" %><span class="box"></span>
             <% end %>
-            <%= link_to "#", class: "btn btn-md green", id: "meeting" do %>
+            <%= link_to "#", class: "btn btn-md btn-filter green", id: "meeting",
+              data: {target: "meeting_room"}  do %>
               <%= t ".meeting_room" %><span class="box"></span>
             <% end %>
-          </div>
-          <div class="btn-group" id = "button-filter2">
-            <label id = "label-space"><%= t "term"%><span class="box"></span></label>
-            <%= link_to "#", class: "btn btn-md green", id: "day" do %>
-              <%= t "booking_types.DAY" %><span class="box"></span>
-            <% end %>
-            <%= link_to "#", class: "btn btn-md green", id: "week" do %>
-              <%= t "booking_types.WEEK" %><span class="box"></span>
-            <% end %>
-            <%= link_to "#", class: "btn btn-md green", id: "month" do %>
-              <%= t "booking_types.MONTH" %><span class="box"></span>
+            <%= link_to "#", class: "btn btn-md btn-filter green", id: "all",
+              data: {target: "all"}  do %>
+              <%= t ".all" %><span class="box"></span>
             <% end %>
           </div>
         </div>
@@ -56,7 +50,7 @@
       <%= hidden_field_tag "markers-on-map", @hash.to_json %>
       <%= hidden_field_tag "current_lat", Settings.default_latitude %>
       <%= hidden_field_tag "current_lng", Settings.default_latitude %>
-      <div class="row" id="search-space-result">
+      <div class="row" id="search-space-result" >
         <%= render "search_result" %>
       </div>
     </div>

@@ -214,9 +214,11 @@ en:
         find_space: "Find space"
         space_type: "Space type"
         desk: "Desk"
-        private_office: "Prive_office"
-        meeting_room: "Meeting_room"
+        private_office: "Prive office"
+        meeting_room: "Meeting room"
         term: "Term"
+        space_type: "Space type"
+        all: "All space"
       show:
         contact: "Contact"
         the_space: "The space"
