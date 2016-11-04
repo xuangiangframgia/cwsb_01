@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
 
   include GeneralHelper
 
+  around_action :skip_bullet
+
+  def skip_bullet
+    Bullet.enable = false
+    yield
+  ensure
+    Bullet.enable = true
+  end
+
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_in, keys: [:name, :email]

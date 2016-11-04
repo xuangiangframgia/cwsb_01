@@ -10,4 +10,5 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w(search/search.js
   search/show_space.js map amenity/edit.js amenity/new.js amenity/index.js
-  static_pages.js booking/index.js booking_history/index.js)
+  static_pages.js booking/index.js booking_history/index.js toggle-switch.css
+  store_bookings/show.js)

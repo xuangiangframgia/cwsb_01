@@ -324,15 +324,19 @@ en:
       your_bookings: "Your booking history"
       title: "Your booking history"
       waitting: "Wait for confirm"
+      title_toogle: "Delete invoice"
   space:
     create_success: "Create space successfully"
     create_fail: "Oops ! Create space fail !"
     capicity: "Capicity: "
     content:
-      title_toogle: "Delete invoice"
     edit: "Edit"
     delete: "Delete"
     per: "Per "
     price: "Pricing information"
     info: "Space infomation"
     confirm_delete: "Are you sure?"
+  store_bookings:
+    show:
+      title_toogle: "Delete bookings"
+      title: "Your booking history"
