@@ -23,6 +23,9 @@ class VenuesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def update
     if @venue.update_attributes venue_params
       flash[:success] = t "flash.success_detail"

@@ -1,13 +1,13 @@
-<% if @pendings.blank? %>
-  <p><%= t "errors.blank", type: Settings.pending_history %></p>
-<% else %>
-  <% @pendings.each_with_index do |venue, index| %>
+<% if @requests.any? %>
+  <% @requests.each_with_index do |venue, index| %>
     <%= hidden_field_tag "venue_id",
       venue.first.id, id: "venue_id-#{Settings.pending}-#{index}" %>
     <%= hidden_field_tag "times",
-      @pendings.length, id: "times-#{Settings.pending}" %>
+      @requests.length, id: "times-#{Settings.pending}" %>
     <%= hidden_field_tag "times_child", venue.second.length,
       id: "times-child-#{Settings.pending}-#{venue.first.id}" %>
     <%= render "content", venue: venue, index: index, type: Settings.pending %>
   <% end %>
+<% else %>
+  <p><%= t "errors.blank", type: Settings.request_history %></p>
 <% end %>

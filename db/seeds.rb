@@ -4,13 +4,13 @@ BookingType.create name: "Week"
 BookingType.create name: "Month"
 
 # create_user
-user = User.new name: "Test User", email: "testuser1@gmail.com",
+user = User.new name: "Test User 1", email: "testuser1@gmail.com",
   password: "password", password_confirmation: "password"
 user.skip_confirmation!
 user.save!
 
 # create_user
-user = User.new name: "Test User", email: "testuser2@gmail.com",
+user = User.new name: "Test User 2", email: "testuser2@gmail.com",
   password: "password", password_confirmation: "password"
 user.skip_confirmation!
 user.save!
@@ -108,7 +108,7 @@ user_role_venue1 = UserRoleVenue.find_by id: 1
 user_role_venue1.update_attributes user_id: 1
 
 user_role_venue2 = UserRoleVenue.find_by id: 2
-user_role_venue2.update_attributes user_id: 2
+user_role_venue2.update_attributes user_id: 1
 
 #create_price_for_space
 Price.all.destroy_all

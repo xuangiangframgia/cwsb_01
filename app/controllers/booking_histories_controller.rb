@@ -3,7 +3,7 @@ class BookingHistoriesController < ApplicationController
 
   def index
     current_bookings = current_user.bookings.have_order
-    @pendings = current_bookings
+    @requests = current_bookings
       .group_by_venue Booking.states.keys[Settings.requested]
     @accepts = current_bookings
       .group_by_venue Booking.states.keys[Settings.accepted]
