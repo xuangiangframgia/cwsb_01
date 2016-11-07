@@ -55,6 +55,7 @@ en:
   date:
     day_names: [SUN, MON, TUE, WED, THU, FRI, SAT]
   layout:
+    your_booking: "Your booking"
     base_title: "CWBS"
     site_name: "CWBS"
     account: "Account"
@@ -82,6 +83,8 @@ en:
     signup: "Sign up"
     cwsb: "Co-W-Space"
     logout: "Logout"
+    your_space: "Your space"
+    your_cart: "Your cart"
   home:
     coworking_space: "Co-working space "
     sharing: "Sharing"
@@ -235,6 +238,9 @@ en:
         full_venue_profile: "Full venue profile"
         open_hours: "Open hours"
         booking: "Booking"
+        area: "Area: "
+        capicity: "Capicity: "
+        quantity: "Quantity: "
   errors:
     blank: "Your %{type} is empty"
     spaces:
@@ -328,17 +334,19 @@ en:
       request: "Requested"
       accept: "Accepted"
       reject: "Rejected"
-  space:
-    create_success: "Create space successfully"
-    create_fail: "Oops ! Create space fail !"
-    capicity: "Capicity: "
-    content:
-    edit: "Edit"
-    delete: "Delete"
-    per: "Per "
-    price: "Pricing information"
-    info: "Space infomation"
-    confirm_delete: "Are you sure?"
+  spaces:
+    index:
+      edit: "Edit"
+      capicity: "Capicity: "
+      delete: "Delete"
+      confirm_delete: "Are you sure?"
+    create:
+      create_success: "Create space successfully"
+      create_fail: "Oop ! Create space fail !"
+    new:
+      per: "Per "
+      price: "Pricing information"
+      info: "Space infomation"
   store_bookings:
     show:
       title_toogle: "Delete bookings"

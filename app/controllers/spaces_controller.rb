@@ -16,10 +16,10 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new space_params
     if @space.save
-      flash[:success] = t "space.create_success"
+      flash[:success] = t ".create_success"
       redirect_to venue_spaces_path
     else
-      flash[:danger] = t "space.create_fail"
+      flash[:danger] = t ".create_fail"
       build_resource
       render :new
     end
@@ -42,7 +42,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit :space_type, :size, :capicity, :quantity,
+    params.require(:space).permit :space_type, :area, :capicity, :quantity,
       :description, :venue_id, images_attributes: [:id, :picture],
       prices_attributes: [:id, :price, :booking_type_id, :_destroy]
   end

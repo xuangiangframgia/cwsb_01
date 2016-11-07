@@ -10,10 +10,10 @@ class Space < ApplicationRecord
   has_many :coupons, dependent: :destroy
   has_many :booking_types, through: :prices
 
-  enum space_type: {desk: 0, prive_office: 1, meeting_room: 2}
+  enum space_type: {desk: 0, prive_office: 1, meeting_room: 2, coworking_space: 3}
 
   validates :space_type, presence: true
-  validates :size, presence: true, numericality: {greater_than: 0}
+  validates :area, presence: true, numericality: {greater_than: 0}
   validates :capicity, presence: true, numericality: {greater_than: 0}
   validates :quantity, presence: true, numericality: {greater_than: 0}
 

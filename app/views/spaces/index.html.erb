@@ -31,15 +31,15 @@
                           <li>
                             <%= link_to "#" do %>
                               <i class="fa fa-pencil" aria-hidden="true"></i>
-                              &nbsp;<%= t "space.edit" %>
+                              &nbsp;<%= t ".edit" %>
                             <% end %>
                           </li>
                           <li>
                             <%= link_to venue_space_path(space.venue, space),
                               class: "delete_space", method: :delete, remote: true,
-                              data: {confirm: t("space.confirm_delete")} do %>
+                              data: {confirm: t(".confirm_delete")} do %>
                               <i class="fa fa-trash" aria-hidden="true"></i>
-                              &nbsp;<%= t "space.delete" %>
+                              &nbsp;<%= t ".delete" %>
                             <% end %>
                           </li>
                         </ul>
@@ -51,7 +51,7 @@
                   <div class="widget-extra themed-background text-center venue-info">
                     <h3 class="widget-content-light">
                       <strong><%= space.space_type %></strong><br>
-                      <small><%= t "space.capicity" %><%= space.capicity %></small>
+                      <small><%= t ".capicity" %><%= space.capicity %></small>
                     </h3>
                   </div>
                 </div>

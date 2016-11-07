@@ -3,7 +3,7 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
     create_table :spaces do |t|
       t.string :name
       t.integer :space_type, null: false
-      t.integer :size, null: false
+      t.integer :area, null: false
       t.integer :capicity, null: false
       t.integer :quantity, null: false
       t.text :description, null: false

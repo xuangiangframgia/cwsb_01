@@ -40,7 +40,7 @@ RSpec.describe SpacesController, type: :controller do
 
     it "don't created space" do
       post :create, {venue_id: venue,
-        space: FactoryGirl.attributes_for(:space, venue_id: venue.id, size: nil)}
+        space: FactoryGirl.attributes_for(:space, venue_id: venue.id, area: nil)}
       expect(flash[:danger]).not_to be_empty
       expect(response).to render_template "new"
     end

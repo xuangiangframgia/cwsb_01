@@ -238,7 +238,7 @@ ActiveRecord::Schema.define(version: 20161019015247) do
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "space_type",                null: false
-    t.integer  "size",                      null: false
+    t.integer  "area",                      null: false
     t.integer  "capicity",                  null: false
     t.integer  "quantity",                  null: false
     t.text     "description", limit: 65535, null: false

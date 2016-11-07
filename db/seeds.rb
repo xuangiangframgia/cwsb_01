@@ -72,12 +72,12 @@ image3 = Image.new picture: Rack::Test::UploadedFile.new(File.join(Rails.root, "
 image4 = Image.new picture: Rack::Test::UploadedFile.new(File.join(Rails.root, "public", "images",
   "spaces", "space1.jpg"))
 
-space1 = Space.new name: Faker::Name.name ,space_type: :prive_office, size: 10, capicity: 4,
+space1 = Space.new name: Faker::Name.name ,space_type: :prive_office, area: 10, capicity: 4,
   quantity: 2, description: Faker::Lorem.paragraph
 space1.images << image1
 venue1.spaces << space1
 
-space2 = Space.new name: Faker::Name.name, space_type: :desk, size: 10, capicity: 4, quantity: 2,
+space2 = Space.new name: Faker::Name.name, space_type: :desk, area: 10, capicity: 4, quantity: 2,
   description: Faker::Lorem.paragraph
 space2.images << image2
 venue1.spaces << space2
@@ -87,12 +87,12 @@ venue2 = Venue.new name: Faker::Name.name,
   phone_number: '0511 3 2343444',
   email: Faker::Internet.email,
   description: Faker::Lorem.paragraph, address: address2
-space3 = Space.new name: Faker::Name.name, space_type: :desk, size: 10, capicity: 4, quantity: 2,
+space3 = Space.new name: Faker::Name.name, space_type: :desk, area: 10, capicity: 4, quantity: 2,
   description: Faker::Lorem.paragraph
 space3.images << image3
 venue2.spaces << space3
 
-space4 = Space.new name: Faker::Name.name, space_type: :desk, size: 10, capicity: 4, quantity: 2,
+space4 = Space.new name: Faker::Name.name, space_type: :desk, area: 10, capicity: 4, quantity: 2,
   description: Faker::Lorem.paragraph
 space4.images << image4
 venue2.spaces << space4
