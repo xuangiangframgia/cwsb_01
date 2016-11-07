@@ -8,7 +8,7 @@ class Order < ApplicationRecord
 
   has_many :bookings
 
-  enum status: {requested: 0, pending: 1}
+  enum status: {requested: 0, pending: 1, paid: 2, closed: 3}
 
   def update_booking
     @booking_ids = booking_ids.split(" ")

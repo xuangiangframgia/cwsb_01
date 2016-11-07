@@ -16,9 +16,12 @@ span_danger: "danger"
 reject_history: "Reject history"
 pending_history: "Pending history"
 accept_history: "Accept history"
+state_pending: 0
 requested: 1
 accepted: 2
 rejected: 3
+status_pending: 1
 pending: "pending"
 reject: "reject"
 accept: "accept"
+day_reject: 1
