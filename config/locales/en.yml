@@ -366,3 +366,9 @@ en:
       title_toogle: "Delete bookings"
       store_bookings: "Store bookings"
       total_due: "Total: "
+      title: "Your booking history"
+  notification:
+    has: "has"
+    ago: "ago"
+    title_notification: "Notification"
+    status_message: "requested"

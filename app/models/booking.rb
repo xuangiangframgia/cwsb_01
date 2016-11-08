@@ -11,6 +11,8 @@ class Booking < ApplicationRecord
 
   enum state: {pending: 0, requested: 1, accepted: 2, rejected: 3}
 
+  after_update_commit :send_notification
+
   validates :booking_from, presence: true
   validates :duration, presence: true
   validates :quantity, presence: true
@@ -37,5 +39,18 @@ class Booking < ApplicationRecord
       .where "date(bookings.booking_from) = date(?) AND
         (bookings.state = ? OR state = ?) AND orders.status = ?",
         date, Settings.requested, Settings.state_pending, Settings.status_pending
+  end
+
+  private
+  def send_notification
+    owner_space_id = self.space.venue.user_role_venues.find_by(role_id: Role.owner).user_id
+    case
+    when self.rejected?
+      self.notifications.create message: :rejected, receiver_id: self.user.id, owner_id: owner_space_id
+    when self.requested?
+      self.notifications.create message: :requested, receiver_id: owner_space_id, owner_id: self.user.id
+    when self.accepted?
+      self.notifications.create message: :accepted, receiver_id: self.user.id, owner_id: owner_space_id
+    end
   end
 end

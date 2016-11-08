@@ -151,11 +151,16 @@ ActiveRecord::Schema.define(version: 20161019015247) do
   create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "notifiable_type"
     t.integer  "notifiable_id"
-    t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "receiver_id"
+    t.integer  "owner_id"
+    t.boolean  "status",          default: false
+    t.string   "message"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id", using: :btree
-    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+    t.index ["owner_id"], name: "index_notifications_on_owner_id", using: :btree
+    t.index ["receiver_id", "owner_id"], name: "index_notifications_on_receiver_id_and_owner_id", using: :btree
+    t.index ["receiver_id"], name: "index_notifications_on_receiver_id", using: :btree
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -218,7 +223,6 @@ ActiveRecord::Schema.define(version: 20161019015247) do
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "type",       null: false
-    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -349,7 +353,6 @@ ActiveRecord::Schema.define(version: 20161019015247) do
   add_foreign_key "coupons", "spaces"
   add_foreign_key "invoices", "bookings"
   add_foreign_key "invoices", "coupons"
-  add_foreign_key "notifications", "users"
   add_foreign_key "permissions", "roles"
   add_foreign_key "prices", "booking_types"
   add_foreign_key "prices", "spaces"

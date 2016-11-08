@@ -6,5 +6,6 @@ class Role < ApplicationRecord
   has_many :users, through: :user_role_venues
 
   validates :type, presence: true
-  validates :name, presence: true
+
+  enum type: {owner: 1, manager: 2, client_service: 3, reception: 4}
 end

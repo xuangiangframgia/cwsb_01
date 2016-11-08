@@ -73,8 +73,20 @@
                   </tr>
                   <tr>
                     <td>
-                      <%= link_to t("layout.notification"), "#" %>
-                      <span class="badge"></span>
+                      <a href="javascript:" class="sidebar-nav-menu" id = "open-notification">
+                        <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                        <span class="sidebar-nav-mini-hide"><%= t "notification.title_notification"%></span>
+                        <i class="fa fa-bell sidebar-nav-icon" id = "fix-number">
+                          <span class="badge" id="notification_count">
+                            <%= count_notification_read %>
+                          </span>
+                        </i>
+                      </a>
+                      <ul id= "load-notification">
+                        <li id="background">
+                          <%= render "notifications/list" %>
+                        </li>
+                      </ul>
                     </td>
                   </tr>
                 </table>

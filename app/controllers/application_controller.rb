@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :load_notification
 
   include GeneralHelper
 
@@ -11,6 +12,13 @@ class ApplicationController < ActionController::Base
     yield
   ensure
     Bullet.enable = true
+  end
+
+  def load_notification
+    if user_signed_in?
+      @notifications = Notification.by_receiver(current_user.id).newest
+      @count_notification_unread = @notifications.unread.size
+    end
   end
 
   private
