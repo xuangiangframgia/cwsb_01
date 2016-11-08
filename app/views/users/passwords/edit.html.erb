@@ -1,54 +1,39 @@
-<% provide :title, t("users.passwords.new.reset_password") %>
-<div class="signup-content">
-  <div id="login-container" class="animation-fadeIn">
-    <div class="login-title text-center">
-      <h1>
-        <strong><%= t "users.registrations.new.title" %></strong><br>
-        <small>
-          <%= t "users.registrations.new.remind" %>
-        </small>
-      </h1>
-    </div>
-    <div class="block push-bit">
-      <%= form_for resource, as: resource_name,
-        url: password_path(resource_name),
-        html: {method: :put, class: "form-horizontal form-bordered
-          form-control-borderless"} do |f| %>
-        <%= devise_error_messages! %>
-        <%= f.hidden_field :reset_password_token %>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <div class="input-group">
-              <span class="input-group-addon">
-                <i class="gi gi-envelope"></i>
-              </span>
-              <%= f.password_field :password, autofocus: true,
-                autocomplete: "off",
-                class: "form-control input-lg",
-                placeholder: t("users.passwords.edit.new") %>
-            </div>
+<% provide :title, t(".reset_password") %>
+<section id="counter" class="parallax-section">
+  <div class="container">
+    <div class="row vertical-offset-200">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 col-sm-12 animation-fadeIn">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title title-color">
+              <%= t ".forgot_pass" %>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <%= form_for resource, as: resource_name,
+              url: password_path(resource_name), html: {method: :put} do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.hidden_field :reset_password_token %>
+              <fieldset>
+                <div class="form-group padding-bot-10">
+                  <%= f.password_field :password, autofocus: true,
+                    autocomplete: "off", class: "form-control",
+                    placeholder: t(".new") %>
+                </div>
+                <div class="form-group padding-bot-10">
+                  <%= f.password_field :password_confirmation, autofocus: true,
+                    autocomplete: "off", class: "form-control",
+                    placeholder: t(".confirm") %>
+                </div>
+                <%= f.submit t(".submit"),
+                  class: "btn btn-lg btn-success btn-block" %>
+              </fieldset>
+            <% end %>
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <div class="input-group">
-              <span class="input-group-addon">
-                <i class="gi gi-envelope"></i>
-              </span>
-              <%= f.password_field :password_confirmation, autofocus: true,
-                autocomplete: "off",
-                class: "form-control input-lg",
-                placeholder: t("users.passwords.edit.confirm") %>
-            </div>
-          </div>
-        </div>
-        <div class="form-group form-actions">
-          <div class="col-xs-12 text-right">
-            <%= f.submit t("users.passwords.edit.submit"),
-              class: "btn btn-sm btn-success" %>
-          </div>
-        </div>
-      <% end %>
+      </div>
+      <div class="col-md-3"></div>
     </div>
   </div>
-</div>
+</section>

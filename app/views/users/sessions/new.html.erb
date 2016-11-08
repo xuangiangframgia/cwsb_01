@@ -1,68 +1,52 @@
-<% provide :title, t("users.sessions.new.sign_in") %>
-<div class="signup-content">
-  <div id="login-container" class="animation-fadeIn">
-    <div class="login-title text-center">
-      <h1>
-        <strong><%= t "users.registrations.new.title" %></strong><br>
-        <small>
-          <%= t "users.registrations.new.remind" %>
-        </small>
-      </h1>
-    </div>
-    <div class="block push-bit">
-      <%= form_for resource, as: resource_name,
-        url: session_path(resource_name),
-        html: {class: "form-horizontal form-bordered
-          form-control-borderless"} do |f| %>
-        <%= devise_error_messages! %>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <div class="input-group">
-              <span class="input-group-addon">
-                <i class="gi gi-envelope"></i>
-              </span>
-              <%= f.email_field :email, autofocus: true,
-                class: "form-control input-lg",
-                placeholder: t("users.registrations.new.email") %>
-            </div>
+<% provide :title, t(".sign_in") %>
+<section id="counter" class="parallax-section">
+  <div class="container">
+    <div class="row vertical-offset-200">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 col-sm-12 animation-fadeIn">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title title-color">
+              <%= t ".remind" %>
+            </h3>
           </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <div class="input-group">
-              <span class="input-group-addon">
-                <i class="gi gi-asterisk"></i>
-              </span>
-              <%= f.password_field :password,
-                autocomplete: "off",class: "form-control input-lg",
-                placeholder: t("users.sessions.new.password") %>
-            </div>
+          <div class="panel-body">
+            <%= form_for resource, as: resource_name,
+              url: session_path(resource_name) do |f| %>
+              <%= devise_error_messages! %>
+              <fieldset>
+                <div class="form-group padding-bot-10">
+                  <%= f.email_field :email, autofocus: true, class: "form-control",
+                    placeholder: t(".email") %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password, autocomplete: "off",
+                    class: "form-control",
+                    placeholder: t(".password") %>
+                </div>
+                <div class="checkbox">
+                  <label class="switch switch-success" data-toggle="tooltip"
+                    title="<%= t ".remember_me" %>">
+                    <% if devise_mapping.rememberable? -%>
+                        <%= f.check_box :remember_me %>
+                        <span></span>
+                    <% end %>
+                  </label>
+                </div>
+                <%= f.submit t(".sign_in"),
+                  class: "btn btn-lg btn-success btn-block" %>
+              </fieldset>
+            <% end %>
           </div>
-        </div>
-        <div class="form-group form-actions">
-          <div class="col-xs-4">
-              <label class="switch switch-primary"
-                data-toggle="tooltip" title="Remember Me?">
-                <% if devise_mapping.rememberable? -%>
-                    <%= f.check_box :remember_me %>
-                    <span></span>
-                <% end -%>
-              </label>
-          </div>
-          <div class="col-xs-8 text-right">
-              <%= f.submit t("users.sessions.new.sign_in"),
-                class: "btn btn-sm btn-primary" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-12 text-center">
-            <%= link_to t("users.sessions.new.forgot_password"),
+          <div class="panel-body">
+            <%= link_to t(".forgot_password"),
               new_password_path(resource_name), data: {turbolinks: false} %> -
-            <%= link_to t("users.sessions.new.create_new_account"),
+            <%= link_to t(".create_new_account"),
               new_registration_path(resource_name), data: {turbolinks: false} %>
           </div>
         </div>
-      <% end %>
+      </div>
+      <div class="col-md-3"></div>
     </div>
   </div>
-</div>
+</section>

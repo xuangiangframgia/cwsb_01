@@ -161,6 +161,7 @@ en:
         confirm_pass: "Verify password"
         have_account: "Do you have an account?"
         login: "Login"
+        remember_me: "Remember Me?"
       edit:
         title: "Your Profile"
         title_info: "Customer Info"
@@ -191,19 +192,26 @@ en:
     sessions:
       new:
         sign_in: "Log in"
+        remind: "Please Login or Register"
         password: "Password"
         forgot_password: "Forgot password?"
         create_new_account: "Create a new account"
+        email: "Email"
+        password: "Password (At least 8 characters)"
+        remember_me: "Remember Me?"
     passwords:
       new:
-        forgot_pass: "Forgot password"
+        email: "Your email"
         reset_password: "Send me reset password instructions"
-        remind: "Did you remember your password? "
+        remind: "Did you remember your password?"
+        login: "Login"
+        forgot_pass: "Forgot password"
       edit:
         submit: "Change my password"
         confirm: "Confirm new password"
         new: "New password"
         reset_password: "Reset password"
+        forgot_pass: "Forgot password"
     confirmations:
       new:
         remind: "Resend confirmation instructions"
