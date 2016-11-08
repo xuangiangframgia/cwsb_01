@@ -19,4 +19,5 @@ class Space < ApplicationRecord
 
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :prices, allow_destroy: true
+  accepts_nested_attributes_for :venue, allow_destroy: true
 end

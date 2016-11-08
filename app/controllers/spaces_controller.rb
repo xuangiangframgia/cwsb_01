@@ -1,7 +1,7 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_venue, only: [:new, :index, :create]
-  before_action :load_booking_types, only: [:new, :create]
+  before_action :load_venue, except: :show
+  before_action :load_booking_types, except: [:index, :show]
   load_resource
 
   def index
@@ -14,14 +14,26 @@ class SpacesController < ApplicationController
   end
 
   def create
-    @space = Space.new space_params
+    @space = @venue.spaces.new space_params
     if @space.save
       flash[:success] = t ".create_success"
       redirect_to venue_spaces_path
     else
       flash[:danger] = t ".create_fail"
-      build_resource
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @space.update_attributes space_params
+      flash[:success] = t ".update_success"
+      redirect_to venue_spaces_path
+    else
+      flash[:danger] = t ".update_fail"
+      render :edit
     end
   end
 
@@ -43,13 +55,15 @@ class SpacesController < ApplicationController
 
   def space_params
     params.require(:space).permit :space_type, :area, :capicity, :quantity,
-      :description, :venue_id, images_attributes: [:id, :picture],
-      prices_attributes: [:id, :price, :booking_type_id, :_destroy]
+      :description, images_attributes: [:id, :picture],
+      prices_attributes: [:id, :price, :booking_type_id]
   end
 
   def build_resource
     @space.images.build if @space.images.blank?
-    @space.prices.build
+    @booking_types.each do |booking_type|
+      @space.prices.build booking_type_id: booking_type.id
+    end
   end
 
   def load_booking_types

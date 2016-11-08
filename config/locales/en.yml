@@ -26,6 +26,7 @@ en:
   working_times: "Working times"
   new_venue: "Create Venue"
   new_space: "Create space"
+  edit_space: "Edit space"
   markers: "Markers"
   venue_description: "venue description"
   map: "Map"
@@ -347,6 +348,9 @@ en:
       per: "Per "
       price: "Pricing information"
       info: "Space infomation"
+    update:
+      update_success: "Update successfully !"
+      update_fail: "Oop ! update fails !"
   store_bookings:
     show:
       title_toogle: "Delete bookings"
