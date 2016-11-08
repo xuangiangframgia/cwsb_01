@@ -26,12 +26,12 @@ namespace :search_space do
     image4 = Image.new picture: Rack::Test::UploadedFile.new(File.join(Rails.root, "public", "images",
       "spaces", "space1.jpg"))
 
-    space1 = Space.new space_type: :prive_office, size: 10, capicity: 4,
+    space1 = Space.new space_type: :prive_office, area: 10, capicity: 4,
       quantity: 2, description: Faker::Lorem.paragraph
     space1.images << image1
     venue1.spaces << space1
 
-    space2 = Space.new space_type: :desk, size: 10, capicity: 4, quantity: 2,
+    space2 = Space.new space_type: :desk, area: 10, capicity: 4, quantity: 2,
       description: Faker::Lorem.paragraph
     space2.images << image2
     venue1.spaces << space2
@@ -39,7 +39,7 @@ namespace :search_space do
 
     venue2 = Venue.new name: Faker::Name.name,
       description: Faker::Lorem.paragraph, address: address2
-    space3 = Space.new space_type: :desk, size: 10, capicity: 4, quantity: 2,
+    space3 = Space.new space_type: :desk, area: 10, capicity: 4, quantity: 2,
       description: Faker::Lorem.paragraph
     space3.images << image3
     space3.images << image4

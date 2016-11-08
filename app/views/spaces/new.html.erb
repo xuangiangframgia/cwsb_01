@@ -6,19 +6,19 @@
     </div>
     <div class="col-md-12 space-form">
       <%= simple_form_for [@venue, @space] do |f| %>
-        <legend><span class="number">1</span><%= t "space.info" %></legend>
+        <legend><span class="number">1</span><%= t ".info" %></legend>
         <%= f.simple_fields_for :images do |form_image| %>
           <%= form_image.input :picture, input_html: {class: "margin-bot-15"} %>
         <% end %>
         <%= f.input :space_type, as: :select, collection: Space.space_types.keys,
           input_html: {class: "form-control"} %>
-        <%= f.input :size, input_html: {class: "form-control margin-bot-15"} %>
+        <%= f.input :area, input_html: {class: "form-control margin-bot-15"} %>
         <%= f.input :capicity, input_html: {class: "form-control margin-bot-15"} %>
         <%= f.input :quantity, input_html: {class: "form-control margin-bot-15"} %>
         <%= f.input :description, input_html: {class: "form-control margin-bot-15"} %>
         <%= f.input :venue_id, as: :hidden, input_html: {value: @venue.id,
           class: "form-control"} %>
-        <legend><span class="number">2</span><%= t "space.price" %></legend>
+        <legend><span class="number">2</span><%= t ".price" %></legend>
         <% @booking_types.each do |booking_type| %>
           <%= f.simple_fields_for :prices do |price| %>
             <%= t "space.per" %><%= booking_type.name %>

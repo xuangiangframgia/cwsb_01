@@ -13,7 +13,11 @@
       <p><strong><%= t ".duration" %></strong></p>
     </div>
     <div class="col-md-4 col-sm-4">
-      <p><strong><%= t ".quantity" %></strong></p>
+      <% if booking.space.coworking_space? %>
+        <p><strong><%= t ".seat" %></strong></p>
+      <% else %>
+        <p><strong><%= t ".quantity" %></strong></p>
+      <% end %>
     </div>
   </div>
   <div class="form-group">
