@@ -14,7 +14,7 @@ span_warning: "warning"
 span_success: "success"
 span_danger: "danger"
 reject_history: "Reject history"
-pending_history: "Pending history"
+request_history: "Request history"
 accept_history: "Accept history"
 state_pending: 0
 requested: 1

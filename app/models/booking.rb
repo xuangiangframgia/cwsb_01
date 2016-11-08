@@ -16,7 +16,9 @@ class Booking < ApplicationRecord
   validates :quantity, presence: true
   validates :user, presence: true
 
-  delegate :name, to: :booking_type, prefix: true
+  delegate :name, to: :booking_type, prefix: true, allow_nil: true
+  delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :name, to: :space, prefix: true, allow_nil: true
 
   scope :without_order, -> do
     where order_id: nil

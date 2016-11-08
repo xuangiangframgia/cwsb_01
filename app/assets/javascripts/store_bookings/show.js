@@ -1,13 +1,24 @@
 $(document).ready(function(){
-  var total_index = $('#total_index').val();
-  var total_prices = [];
-  for(var i = 0 ; i< total_index; i++){
-    var times = $('#times-' + i).val();
-    for(var j = 0; j< times; j++){
-      var checked_button = $('#checked_button-' + i + '-' + j).val();
-      console.log(checked_button);
-      $('#' + checked_button).prop('checked', true);
+  var total_of_venue = $('#total-of-venue').val();
+  var total_price = [];
+  for(var i = 0; i < total_of_venue; i++){
+    total_price[i] = 0;
+    var current_venue = $('#current-venue-' + i).val();
+    var total_of_order_for_current_venue = $('#total-of-order-' + current_venue).val();
+    for(var j = 0; j < total_of_order_for_current_venue; j++){
+      var current_order = $('#current-order-' + current_venue  +'-' + j).val();
+      var total_of_booking_for_current_order = $('#total-of-booking-' + current_order).val();
+      for(var k = 0; k < total_of_booking_for_current_order; k++){
+        var current_booking = $('#current-booking-'+ current_order + '-' + k).val();
+        var display_state = $('#display-state-' + i + '-' + j + '-' + k).val();
+        $('#' + display_state).prop('checked', true);
+        var price_for_current_booking = $('#price-' + current_booking).text().split('$')[1];
+        var quantity_for_current_booking = $('#quantity-' + current_booking).text();
+        var total = parseFloat(quantity_for_current_booking * price_for_current_booking);
+        total_price[i] += total;
+      }
     }
+    $('#total-price-' + current_venue).html(total_price[i]);
   }
   update_single_state();
   update_all_state();

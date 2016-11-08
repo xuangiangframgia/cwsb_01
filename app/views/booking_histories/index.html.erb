@@ -11,7 +11,7 @@
   <div class="block-title">
     <ul class="nav nav-tabs" data-toggle="tabs">
       <li class="active">
-        <%= link_to t(".pending"), "#forum-categories" %>
+        <%= link_to t(".request"), "#forum-categories" %>
       </li>
       <li><%= link_to t(".accept"), "#forum-topics" %></li>
       <li><%= link_to t(".reject"), "#forum-discussion" %></li>
@@ -19,13 +19,13 @@
   </div>
   <div class="tab-content">
     <div class="tab-pane active" id="forum-categories">
-      <%= render "pending", pendings: @pendings %>
+      <%= render "requested", pendings: @pendings %>
     </div>
     <div class="tab-pane" id="forum-topics">
-      <%= render "accept", accepts: @accepts %>
+      <%= render "accepted", accepts: @accepts %>
     </div>
     <div class="tab-pane" id="forum-discussion">
-      <%= render "reject", rejects: @rejects %>
+      <%= render "rejected", rejects: @rejects %>
     </div>
   </div>
 </div>

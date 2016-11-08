@@ -325,6 +325,9 @@ en:
       title: "Your booking history"
       waitting: "Wait for confirm"
       title_toogle: "Delete invoice"
+      request: "Requested"
+      accept: "Accepted"
+      reject: "Rejected"
   space:
     create_success: "Create space successfully"
     create_fail: "Oops ! Create space fail !"
