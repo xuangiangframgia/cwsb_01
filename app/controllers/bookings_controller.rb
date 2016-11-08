@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       @booking.update state: params[:state]
+      BookingMailer.change_status_booking(@booking.state, @booking.user.email).deliver_later
       format.json do
         render json: {
           state: @booking.state,

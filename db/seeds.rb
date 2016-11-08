@@ -15,6 +15,12 @@ user = User.new name: "Test User 2", email: "testuser2@gmail.com",
 user.skip_confirmation!
 user.save!
 
+# create_user
+user = User.new name: "Doan", email: "le.dinh.doan@framgia.com",
+  password: "doan1234", password_confirmation: "doan1234"
+user.skip_confirmation!
+user.save!
+
 #Create price_types
 3.times do |n|
   case n

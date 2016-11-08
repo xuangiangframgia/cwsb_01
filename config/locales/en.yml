@@ -207,6 +207,8 @@ en:
       new:
         remind: "Resend confirmation instructions"
   bookings:
+    email: "Change Status Your Space Booking"
+    status: "The Space Booking is "
     new:
       date: "Date"
       duration: "Duration"

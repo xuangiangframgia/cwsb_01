@@ -42,7 +42,7 @@ function update_single_state(){
         state: state
       },
       success: function(data) {
-        $.growl.notice({ message: data["flash"] });
+        $.growl.notice({ message: data['flash'] });
       },
       error: function(error_message) {
         $.growl.error({ message: 'error ' + error_message });
@@ -56,25 +56,31 @@ function update_all_state(){
   button_check_all.on('click', function(){
     var bunch_of_booking_id = [];
     var venue_id = this.id;
-    var booking_ids = $('.booking_ids-' + venue_id).serializeArray();
+    var booking_ids = $('.booking_ids-' + venue_id);
+    var count_bunch_of_booking_id = 0;
     $.each(booking_ids, function(i, field){
-      bunch_of_booking_id[i] = field.value;
-    });
-    $.ajax({
-      type: 'PUT',
-      url : '/store_bookings',
-      dataType: 'json',
-       data: {
-        booking_ids: bunch_of_booking_id,
-        state: "accepted"
-      },
-      success: function(data) {
-        $.growl.notice({ message: data["flash"] });
-        display_state_after_update(bunch_of_booking_id);
-      },
-      error: function(error_message) {
-        $.growl.error({ message: 'error ' + error_message });
+      if(field.id != 'accepted'){
+        bunch_of_booking_id[count_bunch_of_booking_id] = field.value;
+        count_bunch_of_booking_id ++;
       }
     });
+    if(bunch_of_booking_id.length != 0){
+      $.ajax({
+        type: 'PUT',
+        url : '/store_bookings',
+        dataType: 'json',
+        data: {
+          booking_ids: bunch_of_booking_id,
+          state: 'accepted'
+        },
+        success: function(data) {
+          $.growl.notice({ message: data['flash'] });
+          display_state_after_update(bunch_of_booking_id);
+        },
+        error: function(error_message) {
+          $.growl.error({ message: 'error ' + error_message });
+        }
+      });
+    }
   });
 }
