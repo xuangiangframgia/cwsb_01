@@ -28,7 +28,9 @@ gem "font-awesome-rails"
 gem "wow-rails"
 gem "animate-rails"
 gem "paranoia", "~> 2.2.0.pre"
-gem 'rails-bootstrap-toggle-buttons'
+gem "rails-bootstrap-toggle-buttons"
+gem "whenever", require: false
+
 source "https://rails-assets.org" do
   gem "rails-assets-growl"
 end

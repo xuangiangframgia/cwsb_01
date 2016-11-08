@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :space
   belongs_to :booking_type
+  belongs_to :order
 
   has_one :invoice
   has_many :notifications, as: :notifiable
@@ -27,5 +28,12 @@ class Booking < ApplicationRecord
 
   scope :group_by_venue, -> state do
     send(state).group_by{|booking| booking.space.venue}
+  end
+
+  scope :load_resourse_to_reject, -> date do
+    joins("INNER JOIN orders ON bookings.order_id = orders.id")
+      .where "date(bookings.booking_from) = date(?) AND
+        (bookings.state = ? OR state = ?) AND orders.status = ?",
+        date, Settings.requested, Settings.state_pending, Settings.status_pending
   end
 end
