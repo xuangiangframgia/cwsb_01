@@ -99,9 +99,12 @@ en:
     follow_us: "Follow Us"
     legal: "Legal"
     hello: "Hello,"
-    guest: "guest"
+    link_footer: "Design by CWBS-Team."
   static_pages:
     index:
+      toggle_navigation: "Toggle navigation"
+      type: "Type"
+      somewhere: "somewhere"
       site_des_line1: "Find your co-workingspace"
       site_des_line2: "Explore over 5.000 spaces"
       carousel1: "Find your co-working place is easier than ever"
@@ -121,6 +124,9 @@ en:
       name4: "Pham Van Chien"
       name5: "Nguyen Hoang Anh Dung"
       name6: "Ho Ngoc Doanh"
+      name7: "Le Xuan Giang"
+      name8: "Le Dinh Doan"
+      our_team: "Our Team"
   users:
     mailer:
       confirm:
