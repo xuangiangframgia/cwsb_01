@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  post "/hook" => "payments#update"
+
   resource :store_bookings, only: [:show, :update]
 
+  resources :payments
   resources :booking_histories, only: :index
   resources :static_pages, only: :index
 

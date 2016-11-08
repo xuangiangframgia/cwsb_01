@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var list_of_booking_state = ["pending", "accept", "reject"];
+  var list_of_booking_state = ["request", "accept", "reject"];
   for(var i = 0; i < list_of_booking_state.length; i++){
     var times = $('#times-' + list_of_booking_state[i]).val();
     var total_prices = [];
@@ -12,9 +12,9 @@ function display_total_price(times, total_prices, booking_ids, state_of_booking)
   for(var i = 0; i< times; i++){
     total_prices[i+1] = 0;
     booking_ids[i+1] = "";
-    var venue_id = $('#venue_id-'+ state_of_booking + '-' + i).val();
-    var display_total_price = $('#total-price-'+ state_of_booking + '-' + venue_id);
-    var times_child = $('#times-child-' + state_of_booking + '-' + venue_id).val();
+    var order_id = $('#order_id-'+ state_of_booking + '-' + i).val();
+    var display_total_price = $('#total-price-'+ state_of_booking + '-' + order_id);
+    var times_child = $('#times-child-' + state_of_booking + '-' + order_id).val();
     for(var j=0; j< times_child; j++){
       var booking_id = $('#booking-' + state_of_booking + '-' + i + '-' + j).val();
       booking_ids[i+1] += (booking_id + " ");

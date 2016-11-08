@@ -26,6 +26,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    respond_to do |format|
+      @booking = Booking.find_by id: params[:id]
+      if @booking.destroy
+        format.json {render json: {message: I18n.t("flash.success_message")}}
+      else
+        format.json {render json: {message: I18n.t("flash.danger_message")}}
+      end
+    end
+  end
+
   private
   def booking_params
     params.require(:booking).permit(:space_id, :booking_from, :duration,

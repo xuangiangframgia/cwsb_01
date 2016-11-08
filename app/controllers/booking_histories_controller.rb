@@ -1,13 +1,13 @@
 class BookingHistoriesController < ApplicationController
-  before_action :require_logged_in_user, only: :create
+  before_action :require_logged_in_user
 
   def index
-    current_bookings = current_user.bookings.have_order
+    current_bookings = current_user.bookings.have_order.by_date
     @requests = current_bookings
-      .group_by_venue Booking.states.keys[Settings.requested]
+      .group_by_order Booking.states.keys[Settings.requested]
     @accepts = current_bookings
-      .group_by_venue Booking.states.keys[Settings.accepted]
+      .group_by_order Booking.states.keys[Settings.accepted]
     @rejects = current_bookings
-      .group_by_venue Booking.states.keys[Settings.rejected]
+      .group_by_order Booking.states.keys[Settings.rejected]
   end
 end

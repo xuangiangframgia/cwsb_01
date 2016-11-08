@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019015247) do
+ActiveRecord::Schema.define(version: 20161108071031) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "details",                   null: false
@@ -167,9 +167,24 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "status",                default: 1
     t.float    "total_paid", limit: 24
     t.integer  "venue_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_orders_on_venue_id", using: :btree
+  end
+
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.decimal  "price",                             precision: 10
+    t.text     "notification_params", limit: 65535
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
+    t.integer  "order_id"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.index ["order_id"], name: "index_payments_on_order_id", using: :btree
   end
 
   create_table "permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -344,6 +344,7 @@ en:
       create: "Create order successfully"
     errors:
       create: "Have problem when create orders charge"
+      load: "Can't find any order"
   booking_histories:
     index:
       your_bookings: "Your booking history"
@@ -353,6 +354,8 @@ en:
       request: "Requested"
       accept: "Accepted"
       reject: "Rejected"
+      payment: "Payment"
+      paid: "Paid"
   spaces:
     index:
       edit: "Edit"
@@ -369,6 +372,18 @@ en:
     update:
       update_success: "Update successfully !"
       update_fail: "Oop ! update fails !"
+      payment: "Payment"
+  space:
+    create_success: "Create space successfully"
+    create_fail: "Oops ! Create space fail !"
+    capicity: "Capicity: "
+    content:
+    edit: "Edit"
+    delete: "Delete"
+    per: "Per "
+    price: "Pricing information"
+    info: "Space infomation"
+    confirm_delete: "Are you sure?"
   store_bookings:
     show:
       title_toogle: "Delete bookings"
@@ -380,3 +395,22 @@ en:
     ago: "ago"
     title_notification: "Notification"
     status_message: "requested"
+  payments:
+    errors:
+      create: "Have problem when create payment"
+      load: "Can't find any payment"
+      update: "Update failed"
+    success:
+      update: "Update successfully"
+    show:
+      title: "Your receipt"
+      name: "Username"
+      price: "Total paid"
+      status: "Status"
+      transaction_id: "Transaction_id"
+      purchased_at: "Purchased at"
+      space: "Space"
+      quantity: "Quantity"
+      price: "Price"
+      total: "Total"
+      back: "Go back your booking histories"
