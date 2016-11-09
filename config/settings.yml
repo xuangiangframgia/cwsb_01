@@ -25,3 +25,4 @@ pending: "pending"
 reject: "reject"
 accept: "accept"
 day_reject: 1
+default_price: 0

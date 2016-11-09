@@ -162,9 +162,8 @@ ActiveRecord::Schema.define(version: 20161019015247) do
     t.integer  "status",                default: 1
     t.float    "total_paid", limit: 24
     t.integer  "venue_id"
-    t.boolean  "is_ready",              default: true
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["venue_id"], name: "index_orders_on_venue_id", using: :btree
   end
 

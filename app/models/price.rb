@@ -4,5 +4,6 @@ class Price < ApplicationRecord
   belongs_to :space
   belongs_to :booking_type
 
-  validates :price, presence: true, numericality: {greater_than_or_equal: 0}
+  validates :price, presence: true
+  validates_numericality_of :price, greater_than_or_equal_to: 0
 end
