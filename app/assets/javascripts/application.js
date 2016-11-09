@@ -18,6 +18,7 @@
 //= require gmaps/google
 //= require_tree ./lib
 //= require_tree ./page
+//= require_tree ./search
 //= require_tree ../../../vendor/assets/javascripts
 //= require growl
 //= require bootstrap-sprockets
