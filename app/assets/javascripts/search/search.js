@@ -67,7 +67,8 @@ $(function(){
       handler.getMap().setZoom(17);
     };
 
-    $('.btn-filter').on('click', function () {
+    $('.btn-filter').on('click', function (e) {
+      e.preventDefault();
       var target = $(this).data('target');
       if (target != 'all') {
         $('#search-space-result #space_type').css('display', 'none');
@@ -76,5 +77,16 @@ $(function(){
         $('#search-space-result #space_type').css('display', 'none').fadeIn('slow');
       }
     });
+  });
+
+});
+
+$(document).ready(function() {
+  $('.scroll-y').scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('#fixed-top-last').addClass('fixed-top-last');
+    } else {
+      $('#fixed-top-last').removeClass('fixed-top-last');
+    }
   });
 });
