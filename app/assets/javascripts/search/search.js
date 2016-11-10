@@ -83,7 +83,7 @@ $(function(){
 
 $(document).ready(function() {
   $('.scroll-y').scroll(function() {
-    if ($(this).scrollTop() > 100) {
+    if ($(this).scrollTop() > 50) {
       $('#fixed-top-last').addClass('fixed-top-last');
     } else {
       $('#fixed-top-last').removeClass('fixed-top-last');

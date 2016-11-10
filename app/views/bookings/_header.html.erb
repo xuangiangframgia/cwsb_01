@@ -1,7 +1,7 @@
-<div class="content-header">
+<div class="content-header margin-left-0 margin-right-0">
   <div class="header-section">
     <h1>
-      <i class="gi gi-usd"></i><%= t ".your_bookings" %>
+      <i class="gi gi-usd"></i><%= t "bookings.index.your_bookings" %>
     </h1>
   </div>
 </div>
@@ -16,7 +16,9 @@
   <%= t ".fail_create_request" %>
   <%= link_to t(".x"), "#", class: "close" %>
 </div>
-<div class="request-all">
-  <%= button_tag t(".request_all"), class: "btn btn-danger",
-    id: "button-request-all" %>
+<div class="request-all margin-left-0 margin-right-0">
+  <div class="header-section">
+    <%= button_tag t(".request_all"), class: "btn btn-danger",
+      id: "button-request-all" %>
+  </div>
 </div>

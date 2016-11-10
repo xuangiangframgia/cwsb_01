@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
   <div class="col-md-12">
     <div class="block full">
       <%= @venue.name %>
@@ -38,8 +38,10 @@
                   </div>
                 </div>
                 <div class="panel-body">
-                  <div class="working_times">
-                    <%= render "working_time", f: f %>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <%= render "working_time", f: f %>
+                    </table>
                   </div>
                 </div>
               </div>

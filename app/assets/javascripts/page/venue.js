@@ -21,5 +21,5 @@ $(document).ready(function(){
   });
 });
 $(document).on('click', '.delete_venue', function(){
-  $(this).closest('.col-sm-10').fadeOut();
+  $(this).closest('.col-sm-12').fadeOut();
 });
