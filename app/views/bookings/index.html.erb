@@ -1,5 +1,6 @@
 <% provide :title, t(".your_bookings") %>
 <%= javascript_include_tag "booking/index.js" %>
+<%= javascript_include_tag "booking_history/delete_booking.js" %>
 <div class="row full-height margin-left-0 margin-right-0">
   <%= render "header" %>
   <% @bookings.each_with_index do |venue, index| %>
@@ -9,12 +10,6 @@
       class: "times-child-#{venue.first.id}" %>
     <div class="block custom-block" id= "form-border-<%= venue.first.id %>">
       <div class="block-title margin-left-0 margin-right-0 padding-0-15">
-        <div class="block-options pull-right">
-          <a href="javascript:" class="btn btn-sm btn-alt btn-danger"
-            data-toggle="tooltip" title="<%= t ".title_toogle" %>">
-            <i class="fa fa-times"></i>
-          </a>
-        </div>
         <h2 class="venue-name"><strong><%= venue.first.name %></strong></h2>
       </div>
       <div class="block-section padding-0-15">

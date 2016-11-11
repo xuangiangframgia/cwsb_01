@@ -6,7 +6,9 @@ class Order < ApplicationRecord
   belongs_to :coupon
   belongs_to :venue
 
-  has_many :bookings
+  has_one :payment
+
+  has_many :bookings, dependent: :destroy
 
   enum status: {requested: 0, pending: 1, paid: 2, closed: 3}
 

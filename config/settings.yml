@@ -21,11 +21,14 @@ requested: 1
 accepted: 2
 rejected: 3
 status_pending: 1
-pending: "pending"
-reject: "reject"
-accept: "accept"
+status:
+  rejected: "reject"
+  accept: "accept"
+  request: "request"
 day_reject: 1
 default_price: 0
 mail_from: "anhdungtestframgia@gmail.com"
 mess_success: "success"
 mess_notice: "notice"
+paypal_default_upload: 1
+complete_payment_status: "Completed"

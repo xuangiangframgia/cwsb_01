@@ -1,87 +1,51 @@
-<div class="block full" id= "form-border-<%= venue.first.id %>">
-  <div class="block-title">
-    <div class="block-options pull-right">
-      <a href="javascript:" class="btn btn-sm btn-alt btn-default"
-        data-toggle="tooltip" title="<%= t "booking_histories.index.title_toogle" %>">
-        <i class="fa fa-times"></i>
-      </a>
-    </div>
-    <h2><strong><%= venue.first.name %></strong></h2>
+<div class="block custom-block" id= "form-border-<%= order.first.id %>">
+  <div class="block-title margin-left-0 margin-right-0 padding-0-15">
+    <h2 class="venue-name">
+      <strong><%= order.first.venue.name %></strong>
+    </h2>
   </div>
-  <div class="row block-section">
-    <div class="col-sm-12">
-      <h4> <%= venue.first.address.details %></h4>
-      <address>
-        <i class="fa fa-phone"></i> <%= venue.first.phone_number %><br>
-        <i class="fa fa-envelope-o"></i>
-        <%= link_to venue.first.email %>
-      </address>
-    </div>
+  <div class="block-section padding-0-15">
+    <h4 class="venue-address"><%= order.first.venue.address_details %></h4>
+    <address>
+      <i class="fa fa-phone"></i> <%= order.first.venue.phone_number %><br>
+      <i class="fa fa-envelope-o"></i>
+      <%= link_to order.first.venue.email, "javascript:;" %>
+    </address>
   </div>
-  <div class="table-responsive">
+  <div class="table-responsive padding-0-15">
     <table class="table table-vcenter bookings-table">
       <tbody>
-        <% venue.second.each_with_index do |booking, index2| %>
-          <%= hidden_field_tag "booking_id", booking.id, id: "booking-#{type}-#{index}-#{index2}" %>
-          <tr>
-            <td>
-              <h4><%= link_to booking.space.name %></h4>
-              <span class="label label-info">
-                <%= l booking.booking_from, format: :default %>
-              </span>
-              <span class="label label-info">
-                <i class="fa fa-clock-o"></i>
-                <%= booking.duration %>
-                <%= booking.booking_type_name %>
-              </span>
-              <a href="javascript:void(0)" data-toggle="tooltip"
-                title="" class="btn btn-xs btn-danger"
-                data-original-title="Delete">
-                <i class="fa fa-times"></i>
-              </a>
-            </td>
-            <td class="text-center">
-              <%= image_tag "spaces/space1.jpg", class: "image_tag" %>
-            </td>
-            <td class="text-center">
-              <span class="label label-<%= display_state booking %>">
-                <%= booking.state %>
-              </span></td>
-            <td class="text-center">
-              <strong>x
-                <span class="badge" id="quantity-<%= booking.id %>">
-                  <%= booking.quantity %>
-                </span>
-              </strong></td>
-            <td class="text-right">
-              <span class="label label-success" id="price-<%= booking.id %>">$
-                <%= select_price(booking.space, booking.booking_type_id) %>
-              </span>
-            </td>
-          </tr>
+        <% order.second.each_with_index do |booking, index2| %>
+          <%= hidden_field_tag "booking_id", booking.id,
+            id: "booking-#{type}-#{index}-#{index2}" %>
+          <%= render "layouts/content_of_booking",
+            booking: booking, type: "history" %>
         <% end %>
         <tr class="active">
-          <td colspan="4" class="text-right">
+          <td colspan="5" class="text-right">
             <span class="h3">
               <strong><%= t ".total_due" %></strong>
             </span>
           </td>
           <td class="text-right">
             <span class="h3">
-              <strong id="total-price-<%= type %>-<%= venue.first.id %>"></strong>
+              <strong id="total-price-<%= type %>-<%= order.first.id %>"></strong>
             </span>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="clearfix">
+  <div class="clearfix padding-0-15">
     <div class="btn-group pull-right">
       <%= hidden_field_tag "total_paid", {}, id: "total-price-form" %>
-      <%= hidden_field_tag "booking_ids",
-        venue.second, id: "booking_ids" %>
-      <%= button_tag t(".waitting"),
+      <%= hidden_field_tag "booking_ids", order.second, id: "booking_ids" %>
+      <% if type == "accept" %>
+        <%= render "payment", order: order.first %>
+      <% elsif type == "pending" %>
+        <%= button_tag t(".waitting"),
         class: "btn btn-warning button-request", disabled: true %>
+      <% end %>
     </div>
   </div>
 </div>
