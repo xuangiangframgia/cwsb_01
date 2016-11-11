@@ -4,21 +4,27 @@ BookingType.create name: "Day"
 BookingType.create name: "Week"
 BookingType.create name: "Month"
 
-# create_user
+# create_user 1
 user = User.new name: "Test User 1", email: "testuser1@gmail.com",
   password: "password", password_confirmation: "password"
 user.skip_confirmation!
 user.save!
 
-# create_user
+# create_user 2
 user = User.new name: "Test User 2", email: "testuser2@gmail.com",
   password: "password", password_confirmation: "password"
 user.skip_confirmation!
 user.save!
 
-# create_user
+# create_user 3
 user = User.new name: "Doan", email: "le.dinh.doan@framgia.com",
   password: "doan1234", password_confirmation: "doan1234"
+user.skip_confirmation!
+user.save!
+
+# create_user 4
+user = User.new name: "Giang", email: "le.xuan.giang@framgia.com",
+  password: "12345678", password_confirmation: "12345678"
 user.skip_confirmation!
 user.save!
 
@@ -116,17 +122,9 @@ end
 from = Time.zone.local(1, 1, 1, 8, 00, 00)
 to = Time.zone.local(1, 1, 1, 18, 00, 00)
 
-Role.create type_role: 1
-
-#Update user_role_venue
-user_role_venue1 = UserRoleVenue.find_by id: 1
-user_role_venue1.update_attributes user_id: 1
-user_role_venue1.update_attributes role_id: 1
-
-user_role_venue2 = UserRoleVenue.find_by id: 2
-user_role_venue2.update_attributes user_id: 1
-user_role_venue2.update_attributes role_id: 1
-
+# Create User_Role_venue
+UserRoleVenue.create user_id: 1, venue_id: 1, type_role: 1, old_owner: User.first
+UserRoleVenue.create user_id: 1, venue_id: 2, type_role: 1, old_owner: User.first
 #create_price_for_space
 Price.all.destroy_all
 Space.all.each do |space|

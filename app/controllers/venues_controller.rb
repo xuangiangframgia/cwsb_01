@@ -27,6 +27,7 @@ class VenuesController < ApplicationController
   end
 
   def update
+    authorize! :read, @venue
     if @venue.update_attributes venue_params
       flash[:success] = t "flash.success_detail"
       redirect_to edit_venue_path @venue, active: params[:detail]

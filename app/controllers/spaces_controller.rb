@@ -2,7 +2,7 @@ class SpacesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_venue, except: :show
   before_action :load_booking_types, except: [:index, :show]
-  load_resource
+  load_and_authorize_resource
 
   def index
     @spaces = @venue.spaces

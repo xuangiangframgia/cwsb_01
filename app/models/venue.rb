@@ -4,7 +4,6 @@ class Venue < ApplicationRecord
   has_one :address, inverse_of: :venue
   has_many :images, as: :imageable
   has_many :user_role_venues, dependent: :destroy
-  has_many :roles, through: :user_role_venues
   has_many :users, through: :user_role_venues
   has_many :amenities, through: :venue_amenities
   has_many :venue_amenities, dependent: :destroy
@@ -14,7 +13,7 @@ class Venue < ApplicationRecord
   has_many :orders
   attr_accessor :user
 
-  after_create :create_user_venue
+  after_create :create_user_role_venue
   after_create :build_working_time
   after_create :add_default_amenity
 
@@ -27,8 +26,8 @@ class Venue < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :working_times, allow_destroy: true
 
-  def create_user_venue
-    user_role_venues.create user: user
+  def create_user_role_venue
+    user_role_venues.create user: user, type_role: Settings.owner_role
   end
 
   def build_working_time

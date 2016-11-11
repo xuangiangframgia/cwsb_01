@@ -272,12 +272,11 @@ ActiveRecord::Schema.define(version: 20161108071031) do
   create_table "user_role_venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "venue_id"
-    t.integer  "role_id"
+    t.integer  "type_role",  null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_user_role_venues_on_deleted_at", using: :btree
-    t.index ["role_id"], name: "index_user_role_venues_on_role_id", using: :btree
     t.index ["user_id"], name: "index_user_role_venues_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_user_role_venues_on_venue_id", using: :btree
   end
@@ -379,7 +378,6 @@ ActiveRecord::Schema.define(version: 20161108071031) do
   add_foreign_key "reviews", "venues"
   add_foreign_key "service_charges", "price_types"
   add_foreign_key "spaces", "venues"
-  add_foreign_key "user_role_venues", "roles"
   add_foreign_key "user_role_venues", "users"
   add_foreign_key "user_role_venues", "venues"
   add_foreign_key "venue_amenities", "amenities"

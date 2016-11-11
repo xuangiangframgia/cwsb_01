@@ -63,7 +63,8 @@ class Booking < ApplicationRecord
   private
 
   def send_notification
-    owner_space_id = self.space.venue.user_role_venues.find_by(role_id: Role.owner)
+    binding.pry
+    owner_space_id = self.space.venue.user_role_venues.find_by(type_role: Role.owner)
     case
     when rejected?
       if message.present?
