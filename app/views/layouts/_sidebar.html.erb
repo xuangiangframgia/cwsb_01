@@ -78,7 +78,7 @@
                         <span class="sidebar-nav-mini-hide"><%= t "notification.title_notification"%></span>
                         <i class="fa fa-bell sidebar-nav-icon" id = "fix-number">
                           <span class="badge" id="notification_count">
-                            <%= count_notification_read %>
+                            <%= render "notifications/counter", counter: count_notification_read %>
                           </span>
                         </i>
                       </a>

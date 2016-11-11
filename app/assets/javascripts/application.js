@@ -13,7 +13,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery.turbolinks
+//= require jquery.transit.min
 //= require jquery_ujs
+//= require cable.js
 //= require underscore
 //= require gmaps/google
 //= require_tree ./lib

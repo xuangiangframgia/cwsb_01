@@ -115,12 +115,16 @@ end
 from = Time.zone.local(1, 1, 1, 8, 00, 00)
 to = Time.zone.local(1, 1, 1, 18, 00, 00)
 
+Role.create type_role: 1
+
 #Update user_role_venue
 user_role_venue1 = UserRoleVenue.find_by id: 1
 user_role_venue1.update_attributes user_id: 1
+user_role_venue1.update_attributes role_id: 1
 
 user_role_venue2 = UserRoleVenue.find_by id: 2
 user_role_venue2.update_attributes user_id: 1
+user_role_venue2.update_attributes role_id: 1
 
 #create_price_for_space
 Price.all.destroy_all

@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   resources :static_pages
   resources :notifications, only: :index
   resource  :notifications, only: :update
+
+  mount ActionCable.server => '/cable'
 end

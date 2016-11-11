@@ -8,6 +8,8 @@ class Notification < ApplicationRecord
   scope :newest, -> {order created_at: :desc}
   scope :by_receiver, -> receiver_id {where receiver_id: receiver_id}
 
+  after_create_commit {NotificationBroadcastJob.perform_now(Notification.unread.count,self)}
+
   def load_message
     case notifiable_type
     when Booking.name

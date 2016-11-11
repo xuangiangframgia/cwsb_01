@@ -222,7 +222,7 @@ ActiveRecord::Schema.define(version: 20161019015247) do
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "type",       null: false
+    t.integer  "type_role",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
