@@ -1,6 +1,6 @@
 <%= provide :title, t(".store_bookings") %>
 <%= javascript_include_tag "store_bookings/show.js" %>
-<div class="row full-height margin-left-0 margin-right-0">
+<div class="row full-height margin-left-0 margin-right-0 scroll-y">
   <div class="content-header margin-left-0 margin-right-0">
     <div class="header-section">
       <h1>
@@ -124,7 +124,7 @@
                   <% end %>
                 <% end %>
               <tr>
-                <td colspan="5" class="text-right">
+                <td colspan="7" class="text-right">
                   <span class="h3">
                     <strong><%= t ".total_due" %></strong>
                     <strong id="total-price-<%= venue.id %>"></strong>
