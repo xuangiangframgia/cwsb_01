@@ -57,6 +57,7 @@ en:
     day_names: [SUN, MON, TUE, WED, THU, FRI, SAT]
   layout:
     your_booking: "Your booking"
+    store_booking: "Store booking"
     base_title: "CWBS"
     site_name: "CWBS"
     account: "Account"
@@ -338,7 +339,7 @@ en:
   booking_histories:
     index:
       your_bookings: "Your booking history"
-      title: "Your booking history"
+      booking_histories: "Your booking history"
       waitting: "Wait for confirm"
       title_toogle: "Delete invoice"
       request: "Requested"
@@ -363,4 +364,5 @@ en:
   store_bookings:
     show:
       title_toogle: "Delete bookings"
-      title: "Your booking history"
+      store_bookings: "Store bookings"
+      total_due: "Total: "

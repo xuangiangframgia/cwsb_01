@@ -1,6 +1,11 @@
 <%= javascript_include_tag "map" %>
-<div class="row">
-  <div class="col-md-9">
+<div class="row full-height margin-left-0 margin-right-0">
+  <div class="col-md-5 max-height-x padding-left-0 padding-right-0">
+    <div class="map-info full-height">
+      <div id="gmap_canvas" class="map-show full-height"></div>
+    </div>
+  </div>
+  <div class="col-md-7 max-height-x padding-left-0 padding-right-0 scroll-y">
     <div class="block full">
       <%= @venue.name %>
     </div>
@@ -8,7 +13,7 @@
       <div class="block-title">
         <%= render "shared/form_outline", active_id: "venues" %>
       </div>
-      <div class="row">
+      <div class="row margin-left-0 margin-right-0">
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="tab-content">
@@ -43,17 +48,5 @@
       </div>
     </div>
   </div>
-
-  <div class="col-md-3" >
-    <div class="block full">
-      <div class="block-title">
-        <h4><strong><%= t "markers" %></strong><%= t "map" %></h4>
-      </div>
-      <div class="map-info">
-         <div id="gmap_canvas" class="map-show"></div>
-      </div>
-    </div>
-  </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhyJ3SWFP8U5Xmqe3H3X_iOsR1nw1v6_Q&&libraries=places"></script>
-
