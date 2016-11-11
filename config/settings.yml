@@ -26,3 +26,4 @@ reject: "reject"
 accept: "accept"
 day_reject: 1
 default_price: 0
+mail_from: "anhdungtestframgia@gmail.com"

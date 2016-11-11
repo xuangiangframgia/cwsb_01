@@ -55,7 +55,7 @@
                   check_reject_or_accept(booking),
                   id: "display-state-#{parent_index}-#{index}-#{booking_index}" %>
                 <%= hidden_field_tag "booking_ids", booking.id,
-                  class: "booking_ids-#{venue.id}" %>
+                  class: "booking_ids-#{venue.id}", id: booking.state %>
                   <tr>
                     <td>
                       <h4><%= link_to booking.space_name %></h4>
