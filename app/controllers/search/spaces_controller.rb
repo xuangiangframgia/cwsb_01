@@ -8,7 +8,6 @@ class Search::SpacesController < ApplicationController
     else
       @location = Geocoder.search(params[:search])
     end
-
     respond_to do |format|
       format.html
       format.js
