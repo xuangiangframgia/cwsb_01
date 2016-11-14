@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :amenities do
       resources :service_charges
     end
+    resource :venue_market
   end
 
   resources :static_pages
