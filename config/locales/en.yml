@@ -235,6 +235,8 @@ en:
       request_all: "Request all"
       x: "×"
       title_toogle: "Delete invoice"
+      duration: "Duration"
+      from: "From"
   search:
     place_holder: "Enter location"
     spaces:
@@ -339,6 +341,7 @@ en:
     formats:
       default: "%A, %d. %B %Y, %H:%M"
       time_session: "%I:%M %p"
+      booking_date: "%A, %d %B %Y"
   orders:
     success:
       create: "Create order successfully"

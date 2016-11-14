@@ -80,11 +80,11 @@
       </div>
       <div id="create-booking-block">
         <div class="media-body footer-section line-break-block">
-          <div class="col-md-9">
+          <div class="col-md-12">
             <strong><%= t ".price" %></strong>
           </div>
           <% @space.prices.each do |price| %>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span class="label label-success price-tag">
                 <%= "#{number_with_precision price.price, precision: 0}
                   #{t "vnd_slash"} #{price.booking_type.name.humanize}" %>

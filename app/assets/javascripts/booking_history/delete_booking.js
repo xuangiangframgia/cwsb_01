@@ -14,9 +14,7 @@ function delete_booking_with_id(booking_id){
     dataType: 'json',
     url: '/bookings/' + booking_id,
     success: function(data){
-      if(data.message == "success"){
-        location.reload();
-      }
+      location.reload();
     },
     error: function(XMLHttpRequest, textStatus, errorThrown){
       alert('some error' + textStatus + ' | ' + errorThrown);

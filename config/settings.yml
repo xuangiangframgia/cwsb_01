@@ -32,3 +32,8 @@ mess_success: "success"
 mess_notice: "notice"
 paypal_default_upload: 1
 complete_payment_status: "Completed"
+content_booking:
+  type:
+    booking: "bookings"
+    booking_history: "history"
+    store_booking: "store_booking"
