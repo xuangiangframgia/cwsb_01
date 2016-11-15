@@ -25,7 +25,8 @@
         <% if user_signed_in? %>
           <li>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-              <i class="fa fa-user" aria-hidden="true"></i><%= current_user.name %>
+              <i class="fa fa-user" aria-hidden="true"></i>
+              &nbsp;<%= current_user.name %>
             </a>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
@@ -73,19 +74,28 @@
                   </tr>
                   <tr>
                     <td>
-                      <a href="javascript:" class="sidebar-nav-menu" id = "open-notification">
-                        <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
-                        <span class="sidebar-nav-mini-hide"><%= t "notification.title_notification"%></span>
-                        <i class="fa fa-bell sidebar-nav-icon" id = "fix-number">
+                      <ul class="notificator">
+                        <a href="#" id="open_notification">
+                          <span class="fix-noti"><%= t "notification.title_notification"%></span>
+                          <i class="fa fa-bell sidebar-nav-icon" id="fix-number">
                           <span class="badge" id="notification_count">
                             <%= render "notifications/counter", counter: count_notification_read %>
                           </span>
-                        </i>
-                      </a>
-                      <ul id= "load-notification">
-                        <li id="background">
-                          <%= render "notifications/list" %>
-                        </li>
+                          </i>
+                        </a>
+                        <div class="notificationContainer" id="none">
+                          <div id="notificationsBody" class="notifications">
+                          <div id="notificationsTitle">
+                            <%= link_to t("notification.mark_read_all"), read_noti_all_notifications_path,
+                              method: :post, remote: true, class: "pull-right read-all" %>
+                          </div>
+                          <hr />
+                            <ul id="notificationList">
+                              <%= render "notifications/list" %>
+                            </ul>
+                          </div>
+                          <div id="notificationFooter"><%= link_to t("notification.view_all"), "#", id: "color-view" %></div>
+                        </div>
                       </ul>
                     </td>
                   </tr>

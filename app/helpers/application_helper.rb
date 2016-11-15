@@ -11,7 +11,12 @@ module ApplicationHelper
   def count_notification_read
     if user_signed_in?
       current_noti_unread = @count_notification_unread
-        current_noti_unread
+    end
+  end
+
+  def status_unread notification
+    unless notification.status?
+      t "notification.unread"
     end
   end
 
@@ -23,6 +28,5 @@ module ApplicationHelper
         booking_histories_path
       end
     end
-
   end
 end
