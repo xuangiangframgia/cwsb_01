@@ -14,6 +14,7 @@ class SpacesController < ApplicationController
   end
 
   def create
+    params["space"]["day_reject"] = Settings.day_reject if params["space"]["day_reject"].empty?
     @space = @venue.spaces.new space_params
     if @space.save
       flash[:success] = t ".create_success"
@@ -54,8 +55,8 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit :space_type, :area, :capicity, :quantity,
-      :description, images_attributes: [:id, :picture],
+    params.require(:space).permit :name, :space_type, :area, :capicity, :quantity,
+      :description, :day_reject, images_attributes: [:id, :picture],
       prices_attributes: [:id, :price, :booking_type_id]
   end
 

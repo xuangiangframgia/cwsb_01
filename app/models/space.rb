@@ -12,8 +12,11 @@ class Space < ApplicationRecord
 
   enum space_type: {desk: 0, prive_office: 1, meeting_room: 2, coworking_space: 3}
 
+  validates :name, presence: true
   validates :space_type, presence: true
   validates :area, presence: true, numericality: {greater_than: 0}
+  validates :day_reject, numericality: {greater_than: 0}
+  validates :day_reject, presence: true, on: :update
   validates :capicity, presence: true, numericality: {greater_than: 0}
   validates :quantity, presence: true, numericality: {greater_than: 0}
 

@@ -41,10 +41,10 @@ class Booking < ApplicationRecord
   end
 
   scope :load_resourse_to_reject, -> date do
-    joins("INNER JOIN orders ON bookings.order_id = orders.id")
+    joins("LEFT JOIN orders ON bookings.order_id = orders.id")
       .where "date(bookings.booking_from) = date(?) AND
-        (bookings.state = ? OR state = ?) AND orders.status = ?",
-        date, Settings.requested, Settings.state_pending, Settings.status_pending
+        (bookings.state = ? OR bookings.state = ? OR orders.status = ?)",
+        date, Settings.state_pending, Settings.requested, Settings.status_pending
   end
 
   def total_price

@@ -255,15 +255,16 @@ ActiveRecord::Schema.define(version: 20161108071031) do
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "space_type",                null: false
-    t.integer  "area",                      null: false
-    t.integer  "capicity",                  null: false
-    t.integer  "quantity",                  null: false
-    t.text     "description", limit: 65535, null: false
+    t.integer  "space_type",                            null: false
+    t.integer  "area",                                  null: false
+    t.integer  "capicity",                              null: false
+    t.integer  "quantity",                              null: false
+    t.text     "description", limit: 65535,             null: false
+    t.integer  "day_reject",                default: 1
     t.integer  "venue_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.index ["deleted_at"], name: "index_spaces_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_spaces_on_venue_id", using: :btree
   end

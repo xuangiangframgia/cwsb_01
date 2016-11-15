@@ -7,6 +7,7 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.integer :capicity, null: false
       t.integer :quantity, null: false
       t.text :description, null: false
+      t.integer :day_reject, default: 1, null: false
       t.references :venue, index: true, foreign_key: true
       t.datetime "deleted_at"
 
