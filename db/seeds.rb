@@ -1,4 +1,5 @@
 # booking types
+BookingType.create name: "Hour"
 BookingType.create name: "Day"
 BookingType.create name: "Week"
 BookingType.create name: "Month"
@@ -132,12 +133,14 @@ Space.all.each do |space|
   BookingType.all.each do |booking_type|
     price = 0
     case booking_type.name
+    when "Hour"
+      price = 1
     when "Day"
-      price = 50000
+      price = 24
     when "Week"
-      price = 280000
+      price = 168
     when "Month"
-      price = 3000000
+      price = 5040
     end
     Price.create space: space, booking_type: booking_type, price: price
   end

@@ -1,27 +1,19 @@
 <tr>
-  <td>
-    <h4><%= link_to booking.space_name %></h4>
-    <span class="label label-info">
-      <%= l booking.booking_from, format: :default %>
-    </span>
-    <span class="label label-info">
-      <i class="fa fa-clock-o"></i>
-      <%= booking.duration %>
-      <%= booking.booking_type_name %>
-    </span>
-    <% if type == "history" %>
-      <% unless booking.order.paid? %>
-        <%= link_to "#", class: "btn btn-xs btn-danger delete-booking",
-          id: "delete-#{booking.id}" do %>
-          <i class="fa fa-times"></i>
+  <td class="first">
+    <h4 id="test">
+      <%= link_to booking.space.name %>
+      <% if type == Settings.content_booking.type.booking_history %>
+        <% unless booking.order.paid? %>
+          <%= link_to t(".x"), "#", class: "close",
+            class: "btn btn-xs btn-danger delete-booking",
+            id: "delete-#{booking.id}" %>
         <% end %>
+      <% elsif type == Settings.content_booking.type.booking %>
+        <%= link_to t(".x"), "#", class: "close",
+          class: "btn btn-xs btn-danger delete-booking",
+          id: "delete-#{booking.id}" %>
       <% end %>
-    <% else %>
-      <%= link_to "#", class: "btn btn-xs btn-danger delete-booking",
-        id: "delete-#{booking.id}" do %>
-        <i class="fa fa-times"></i>
-      <% end %>
-    <% end %>
+    </h4>
   </td>
   <td class="text-center">
     <%= image_tag "spaces/space1.jpg", class: "image_tag" %>
@@ -30,6 +22,13 @@
     <span class="label label-<%= display_state booking %>">
       <%= booking.state %>
     </span>
+  </td>
+  <td class="text-center">
+    <strong><%= t ".from" %>
+      <span class="label label-info" id= "booking-from-<%= booking.id %>">
+        <%= l booking.booking_from, format: :booking_date %>
+      </span>
+    </strong>
   </td>
   <td class="text-right">
     <span class="label label-primary" id="price-<%= booking.id %>">$
@@ -44,10 +43,19 @@
     </strong>
   </td>
   <td class="text-center">
+    <strong id =""> <%= t ".duration" %>
+      <span class="label label-info" id="duration-<%= booking.id %>">
+      <i class="fa fa-clock-o"></i>
+      <%= booking.duration %> <%= booking.booking_type_name %>
+    </span>
+    </strong>
+  </td>
+  <td class="text-center">
     <strong>
-      <span class="badge" id="price-<%= booking.id %>">$
-        <%= booking.total_price %>
+      <span class="badge" id="each-price-<%= booking.id %>">$
       </span>
     </strong>
   </td>
-</tr>
+<% unless type == "store_booking" %>
+  </tr>
+<% end %>

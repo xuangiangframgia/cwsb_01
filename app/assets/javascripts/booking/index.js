@@ -32,10 +32,14 @@ function display_total_price_and_pass_value(times, total_prices, booking_ids){
       booking_ids[i+1] += (booking_id + " ");
       var quantity = $('#quantity-' + booking_id);
       var price = $('#price-' + booking_id).text().split('$')[1];
-      var total = parseFloat(quantity.text() * price);
+      var total = 0;
+      total = calculate_price(booking_id, quantity, price);
+      var each_price = $('#each-price-' + booking_id);
+      each_price.append(total);
       total_prices[i+1] += total;
     }
-    display_total_price.html('$ ' + total_prices[i+1]);
+    total_prices[i+1] = total_prices[i+1].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    display_total_price.html(total_prices[i+1] + ' VND');
     hidden_form_total_price.val(total_prices[i+1]);
     hidden_form_booking_ids.val(booking_ids[i+1]);
   }

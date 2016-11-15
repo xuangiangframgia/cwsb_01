@@ -13,12 +13,16 @@ $(document).ready(function(){
         var display_state = $('#display-state-' + i + '-' + j + '-' + k).val();
         $('#' + display_state).prop('checked', true);
         var price_for_current_booking = $('#price-' + current_booking).text().split('$')[1];
-        var quantity_for_current_booking = $('#quantity-' + current_booking).text();
-        var total = parseFloat(quantity_for_current_booking * price_for_current_booking);
+        var quantity_for_current_booking = $('#quantity-' + current_booking);
+        var total = 0;
+        total = calculate_price(current_booking, quantity_for_current_booking, price_for_current_booking );
+        var each_price = $('#each-price-' + current_booking);
+        each_price.append(total);
         total_price[i] += total;
       }
     }
-    $('#total-price-' + current_venue).html(total_price[i]);
+    total_price[i] = total_price[i].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    $('#total-price-' + current_venue).html(total_price[i] + ' VND');
   }
   update_single_state();
   update_all_state();
