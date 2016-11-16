@@ -1,6 +1,6 @@
 
 .bg-one {
-  background-color: #333439;
+  background-color: #00464f;
 }
 .parallax-section {
   background-attachment: fixed !important;
@@ -12,12 +12,11 @@
   margin-bottom: 0px !important;
 }
 .carousel-indicators .active {
-  background-color: #6cb670 !important;
+  background-color: #00444d !important;
   border: 0 !important;
 }
 #logo {
-  color: #6cb670 !important;
-  font-family: oswald !important;
+  color: #FFF !important;
 }
 #home-carousel .carousel-inner .item {
   width: 100%;
@@ -40,7 +39,7 @@
   text-align: left;
 }
 .carousel-caption > div {
-  background-color: rgba(108, 182, 112, 0.4);
+  background-color: rgba(0, 68, 77, 0.4);
   padding: 60px 50px 80px 20%;
   position: absolute;
   top: 20%;
@@ -82,17 +81,17 @@
   right: 50px;
 }
 #nav-arrows > a.sl-next:hover {
-  background-color: #6cb670;
-  border-color: #6cb670;
+  background-color: #00444d;
+  border-color: #00444d;
   color: #fff;
 }
 .carousel-indicators .active {
-  background-color: #6cb670;
+  background-color: #00444d;
   border: 0;
 }
 
 #testimonial {
-  background-color: #2B2C30 !important;
+  background-color: #002d33 !important;
   padding: 70px 0;
 }
 
@@ -217,7 +216,7 @@
   margin: 10px;
 }
 .navbar-inverse {
-  background-color: #2B2C30 !important;
+  background-color: #002d33 !important;
   width: 100%;
   z-index: 99;
   border: none !important;
@@ -250,7 +249,7 @@
 
 .navbar-inverse .navbar-nav > li.current > a {
   color: #6cb670;
-  background-color: #2f3238;
+  background-color: #007180;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
