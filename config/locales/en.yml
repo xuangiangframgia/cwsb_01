@@ -398,6 +398,9 @@ en:
     ago: "ago"
     title_notification: "Notification"
     status_message: "requested"
+    view_all: "View All"
+    mark_read_all: "Mark read all"
+    unread: "unread"
   payments:
     errors:
       create: "Have problem when create payment"

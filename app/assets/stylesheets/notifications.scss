@@ -1,5 +1,4 @@
 #notification_count {
-  position: absolute;
   top: -12px;
   left: 10px;
 }
@@ -8,11 +7,129 @@
   position: relative;
 }
 
-#background {
+#notificationList {
   margin-left: -14px;
-  width: 114%;
+  width: 100%;
 }
 
 #load-notification {
   display: none;
+}
+
+.notification-body{
+  margin-bottom: 8px;
+}
+
+ul #notificationList
+{
+  li
+  {
+    position:relative;
+    border-bottom: rgba(249, 246, 246, 0.15) 1px solid;
+    margin-top: 15px;
+    a {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+
+}
+
+#notificationsBody ul
+{
+  padding-left: 20px;
+}
+
+.notificationContainer
+{
+  background-color: #fff;
+  border: 1px solid rgba(100, 100, 100, .4);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  overflow: visible;
+  position: absolute;
+  top: 70px;
+  width: 300px;
+  z-index: 0;
+  display: none;
+  margin-left: 187px;
+  margin-top: 158px;
+}
+
+
+.notificationContainer:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  color: transparent;
+  border: 10px solid black;
+  border-color: transparent transparent white;
+  margin-top: -20px;
+  margin-left: 258px;
+}
+
+#notificationsBody
+{
+  padding: 3px 0px 0px 0px !important;
+  min-height:300px;
+  max-height:300px;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  background: #007180;
+}
+ #notificationsTitle{
+  margin-bottom: 35px;
+ }
+
+#notificationFooter
+{
+  background-color: #e9eaed;
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+  font-size: 12px;
+  border-top: 1px solid #dddddd;
+}
+
+.style-notification {
+  color: #FFF !important;
+  margin-left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+.fix-noti {
+  margin-left: -30px;
+}
+
+@media (max-width: 1595px) {
+  .notificationContainer {
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 70px;
+    width: 300px;
+    z-index: 0;
+    display: none;
+    margin-left: 187px;
+    margin-top: 158px;
+  }
+}
+
+.unread {
+  background: #886969;
+}
+
+.read-all {
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#color-view {
+  color: black;
 }

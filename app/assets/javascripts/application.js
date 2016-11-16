@@ -16,6 +16,7 @@
 //= require jquery.transit.min
 //= require jquery_ujs
 //= require cable.js
+//= require notification.js
 //= require underscore
 //= require gmaps/google
 //= require_tree ./lib
