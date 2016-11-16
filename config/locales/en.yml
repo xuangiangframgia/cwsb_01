@@ -21,6 +21,8 @@
 
 en:
   hello: "Hello world"
+  failed: "failed"
+  success: "success"
   in: "in"
   check_all: "Check all"
   working_times: "Working times"
@@ -420,3 +422,6 @@ en:
       price: "Price"
       total: "Total"
       back: "Go back your booking histories"
+  venue_markets:
+    edit:
+      list_space: "If you change status, all spaces of this venue can't booking"

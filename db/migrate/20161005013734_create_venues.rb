@@ -9,7 +9,10 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.integer :floor_space
       t.integer :number_of_rooms
       t.integer :number_of_desks
+      t.text :introduction
+      t.text :slogan
       t.text :description, null: false
+      t.boolean :status, default: false
       t.datetime "deleted_at"
 
       t.timestamps

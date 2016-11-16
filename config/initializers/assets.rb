@@ -12,4 +12,4 @@ Rails.application.config.assets.precompile += %w(search/search.js
   search/show_space.js map amenity/edit.js amenity/new.js amenity/index.js
   static_pages.js booking/index.js booking_history/index.js toggle-switch.css
   store_bookings/show.js cable.js booking_history/delete_booking.js
-  booking_history/calculate_price.js)
+  booking_history/calculate_price.js venue_market/edit.js)

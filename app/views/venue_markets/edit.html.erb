@@ -1,0 +1,40 @@
+<%= javascript_include_tag "venue_market/edit.js" %>
+<div class="media-body footer-section line-break-block">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="block full">
+        <%= @venue.name %>
+      </div>
+      <div class="block full">
+        <div class="block-title">
+          <%= render "shared/form_outline", active_id: "marketplace" %>
+        </div>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <div class="tab-content">
+              <%= hidden_field_tag "venue_id", @venue.id, id: "venue-id" %>
+              <label  class="switch switch-primary"><%= t(".list_space")%>
+                <%= check_box_tag :status, @venue.status, @venue.status %>
+                <span></span>
+              </label>
+              <div id="hidden-form">
+                <hr>
+                  <%= simple_form_for [@venue, @venue_market], method: :patch, remote: true do |f| %>
+                    <%= f.input :slogan,
+                      input_html: {class: "form-control margin-bot-15"} %>
+                    <%= f.input :description,
+                      input_html: {class: "form-control margin-bot-15"} %>
+                    <%= f.input :introduction,
+                      input_html: {class: "form-control margin-bot-15"} %>
+                    <%= f.button :submit, class: "btn btn-primary pull-right" %>
+                  <% end %>
+                </hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

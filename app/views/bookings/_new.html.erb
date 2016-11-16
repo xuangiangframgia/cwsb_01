@@ -51,9 +51,11 @@
               </div>
             </td>
             <td width="15%">
-              <div class="form-group">
-                <%= f.submit t("book_now"), class: "btn btn-sm btn-primary" %>
-              </div>
+              <% if @booking.space.venue.status %>
+                <div class="form-group">
+                  <%= f.submit t("book_now"), class: "btn btn-sm btn-primary" %>
+                </div>
+              <% end %>
             </td>
           </tr>
         </tbody>
