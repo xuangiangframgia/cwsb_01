@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
   include GeneralHelper
 
+  attr_accessor :message
+
   acts_as_paranoid
 
   belongs_to :user
@@ -63,12 +65,14 @@ class Booking < ApplicationRecord
   def send_notification
     owner_space_id = self.space.venue.user_role_venues.find_by(role_id: Role.owner).user_id
     case
-    when self.rejected?
-      self.notifications.create message: :rejected, receiver_id: self.user.id, owner_id: owner_space_id
-    when self.requested?
-      self.notifications.create message: :requested, receiver_id: owner_space_id, owner_id: self.user.id
-    when self.accepted?
-      self.notifications.create message: :accepted, receiver_id: self.user.id, owner_id: owner_space_id
+    when rejected?
+      if message.present?
+        notifications.create message: self.message, receiver_id: self.user.id, owner_id: owner_space_id
+      end
+    when requested?
+      notifications.create message: :requested, receiver_id: owner_space_id, owner_id: self.user.id
+    when accepted?
+      notifications.create message: :accepted, receiver_id: self.user.id, owner_id: owner_space_id
     end
   end
 end

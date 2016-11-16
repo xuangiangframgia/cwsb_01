@@ -43,6 +43,7 @@
               <%= hidden_field_tag "total_of_booking_for_current_order",
                 order.bookings.length, id: "total-of-booking-#{order.id}" %>
               <% order.bookings.each_with_index do |booking, booking_index| %>
+                <%= render "add_message", booking: booking %>
                 <%= hidden_field_tag "current_booking", booking.id,
                   id: "current-booking-#{order.id}-#{booking_index}" %>
                 <%= hidden_field_tag "display_state",
@@ -57,7 +58,8 @@
                       <%= form_tag booking_path(booking), method: :patch do |f| %>
                         <fieldset>
                           <div class="switch-toggle well" id= "confirm-button">
-                            <input id="rejected-<%= booking.id %>" value="<%= Booking.states.keys[3] %>" name="<%= booking.id %>" type="radio" class="state">
+                            <input id="rejected-<%= booking.id %>" value="<%= Booking.states.keys[3] %>" name="<%= booking.id %>"
+                              type="radio" class="state" data-toggle="modal" data-target="#modal_message">
                             <label for="rejected-<%= booking.id %>" id="rejected-label">
                               <%= Booking.states.keys[Settings.rejected] %>
                             </label>

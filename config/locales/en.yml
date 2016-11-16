@@ -390,11 +390,20 @@ en:
     info: "Space infomation"
     confirm_delete: "Are you sure?"
   store_bookings:
+    fail: "send message fail"
+    success: "send message success"
     show:
       title_toogle: "Delete bookings"
       store_bookings: "Store bookings"
       total_due: "Total: "
       title: "Your booking history"
+    add_message:
+      close: "x"
+      title_modal: "Send message notification"
+      message: "Message"
+      cancel: "Cancel"
+      submit: "Submit"
+      rejected: "rejected"
   notification:
     has: "has"
     ago: "ago"
