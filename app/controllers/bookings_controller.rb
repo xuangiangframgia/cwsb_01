@@ -15,8 +15,21 @@ class BookingsController < ApplicationController
 
   def update
     respond_to do |format|
-      @booking.update state: params[:state]
-      BookingMailer.change_status_booking(@booking.state, @booking.user.email).deliver_later
+      if params[:state].present?
+        if @booking.update state: params[:state]
+          BookingMailer.change_status_booking(@booking.state, @booking.user.email).deliver_later
+        else
+          flash[:danger] = t "store_bookings.fail"
+          redirect_to booking_path
+        end
+      elsif params[:message].present?
+        if @booking.update message: params[:message]
+          flash[:success] = t "store_bookings.success"
+        else
+          flash[:danger] = t "store_bookings.fail"
+          redirect_to booking_path
+        end
+      end
       format.json do
         render json: {
           state: @booking.state,

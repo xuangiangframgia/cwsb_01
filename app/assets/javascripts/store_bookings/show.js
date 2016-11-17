@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  hide_modal_after_submit();
   var total_of_venue = $('#total-of-venue').val();
   var total_price = [];
   for(var i = 0; i < total_of_venue; i++){
@@ -27,6 +28,12 @@ $(document).ready(function(){
   update_single_state();
   update_all_state();
 });
+
+function hide_modal_after_submit(){
+  $('#sm_close').on('click', function(){
+    $('#modal_message').modal('hide');
+  });
+}
 
 function display_state_after_update(booking_ids){
   $.each(booking_ids, function(i, field){
