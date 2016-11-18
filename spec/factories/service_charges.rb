@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :service_charge do
-    amenity nil
-    price_type nil
+    price_type
+    price {Faker::Number.number(3)}
+    quantity {Faker::Number.number(2)}
   end
 end
