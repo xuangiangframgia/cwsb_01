@@ -5,9 +5,7 @@ $(document).ready(function(){
     var this_amenity_id = this.id;
     var venue_id = $('.hidden-venue').val();
     set_value_for_checkbox(this_checkbox);
-    console.log(this_checkbox.val());
     update_service_charge_and_is_free(venue_id, this_amenity_id, this_checkbox);
-    console.log(this_checkbox.val());
   });
 });
 function set_value_for_checkbox(this_checkbox){
