@@ -56,7 +56,7 @@ end
   end
   amenity = Amenity.create! name: name, description: description, is_free: true,
     is_default: true
-  ServiceCharge.create! amenity_id: amenity.id, price_type_id: 1
+  ServiceCharge.create! amenity_id: amenity.id, price_type_id: 1, price: 1000
 end
 
 # create_address
