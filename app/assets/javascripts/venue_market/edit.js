@@ -43,3 +43,16 @@ function update_check_box_and_form(status){
   this_check_box.val(status);
   check_display_hide_form(this_check_box, this_hidden_form);
 }
+$(document).ready(function(){
+  $('select').on('change', function() {
+  if(this.value == 'paypal'){
+  $('.form-paypal').show();
+  }
+  else {
+  $('.form-paypal').hide();
+  }
+})
+});
+$(document).on('click', '.payment-method', function(){
+  $('.form-paypal').hide();
+});

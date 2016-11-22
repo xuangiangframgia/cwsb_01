@@ -73,6 +73,41 @@
   border-radius: 8px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+.space-form {
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+.space-form {
+  display: block;
+  margin-bottom: 10px;
+  min-height: 35px;
+}
+.space-form  .field-style{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 8px;
+  outline: none;
+  border: 1px solid #B0CFE0;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+.space-form  .field-style:focus{
+  box-shadow: 0 0 5px #B0CFE0;
+  border:1px solid #B0CFE0;
+}
+.space-form .space {
+  padding: 10px;
+}
+.space-form  .field-style .booking-1, .booking-3 {
+  float:left;
+}
+.space-form  .field-style .booking-2, .booking-4 {
+  float:right;
+}
 .space-content-form {
   margin-top: 40px;
 }

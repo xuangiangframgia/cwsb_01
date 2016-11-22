@@ -3,6 +3,8 @@ class VenueMarketsController < ApplicationController
   before_action :load_venue, only: [:edit, :update]
 
   def edit
+    @payment_method = @venue.payment_methods.new
+    @payment_methods = @venue.payment_methods
   end
 
   def update

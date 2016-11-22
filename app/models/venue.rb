@@ -11,6 +11,8 @@ class Venue < ApplicationRecord
   has_many :spaces, dependent: :destroy
   has_many :working_times, dependent: :destroy
   has_many :orders
+  has_many :payment_methods, dependent: :destroy
+
   attr_accessor :user
 
   after_create :create_user_role_venue

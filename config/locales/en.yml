@@ -383,6 +383,11 @@ en:
       update_success: "Update successfully !"
       update_fail: "Oop ! update fails !"
       payment: "Payment"
+    form:
+      area: "Please enter the area !"
+      day_reject: "Please enter the day reject !"
+      capicity: "Please enter the capicity !"
+      quantity: "Please enter the quantity !"
   space:
     create_success: "Create space successfully"
     create_fail: "Oops ! Create space fail !"

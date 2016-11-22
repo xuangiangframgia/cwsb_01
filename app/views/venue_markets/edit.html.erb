@@ -14,11 +14,22 @@
           <div class="col-md-10">
             <div class="tab-content">
               <%= hidden_field_tag "venue_id", @venue.id, id: "venue-id" %>
-              <label  class="switch switch-primary"><%= t(".list_space")%>
+              <label class="switch switch-primary"><%= t(".list_space")%>
                 <%= check_box_tag :status, @venue.status, @venue.status %>
                 <span></span>
               </label>
               <div id="hidden-form">
+              <div class="payment">
+                <h1><i class="fa fa-money" aria-hidden="true"></i></h1>
+                <h3>Payment method</h3>
+                <% @payment_methods.each do |payment| %>
+                  <%= check_box_tag :status, payment.status, payment.status %>
+                  <%= payment.name %><br>
+                <% end %>
+                <button data-toggle="modal" data-target="#modal_message" class="btn btn-primary payment-method">Add</button>
+                <%= render "add_payment_method" %>
+
+              </div>
                 <hr>
                   <%= simple_form_for [@venue, @venue_market], method: :patch, remote: true do |f| %>
                     <%= f.input :slogan,

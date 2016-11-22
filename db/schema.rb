@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108071031) do
+ActiveRecord::Schema.define(version: 20161122091256) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "details",                   null: false
@@ -172,6 +172,16 @@ ActiveRecord::Schema.define(version: 20161108071031) do
     t.datetime "updated_at",                        null: false
     t.index ["deleted_at"], name: "index_orders_on_deleted_at", using: :btree
     t.index ["venue_id"], name: "index_orders_on_venue_id", using: :btree
+  end
+
+  create_table "payment_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.boolean  "status"
+    t.string   "email"
+    t.integer  "venue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["venue_id"], name: "index_payment_methods_on_venue_id", using: :btree
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -371,6 +381,7 @@ ActiveRecord::Schema.define(version: 20161108071031) do
   add_foreign_key "coupons", "spaces"
   add_foreign_key "invoices", "bookings"
   add_foreign_key "invoices", "coupons"
+  add_foreign_key "payment_methods", "venues"
   add_foreign_key "permissions", "roles"
   add_foreign_key "prices", "booking_types"
   add_foreign_key "prices", "spaces"

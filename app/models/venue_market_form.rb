@@ -3,4 +3,5 @@ class VenueMarketForm < Reform::Form
   property :slogan
   property :description
   property :status
+
 end
