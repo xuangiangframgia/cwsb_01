@@ -20,9 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  disabled: "disabled"
+  admin: "Add a new administrator"
   hello: "Hello world"
   failed: "failed"
   success: "success"
+  save: "Save"
   in: "in"
   next: "Next"
   check_all: "Check all"
@@ -35,6 +38,7 @@ en:
   map: "Map"
   venue_name: "venue name"
   add_venue: "Add venue"
+  add_admin: "Add admin"
   venue_address: "venue Address"
   venue: "VENUE"
   detail: "DETAIL"
@@ -435,3 +439,42 @@ en:
   venue_markets:
     edit:
       list_space: "If you change status, all spaces of this venue can't booking"
+  user_role_venues:
+    new:
+      create: "Create the new administrator"
+      user: "User name of new administrator"
+      owner: "Owner"
+      manager: "Manager"
+      client_service: "Client Service"
+      reception: "Reception"
+    edit:
+      update: "Update the new administrator"
+      save: "Save"
+      edit: "Edit a administrator"
+    create:
+      create_success: "Create permistion successfully !"
+      create_fail: "Opps ! create permistion failed !"
+      existed: "The user has existed !"
+    update:
+      updated: "Updated !"
+      update_fail: "Opps ! update failed !"
+      change_role_fail: "Set another administrator as owner to switch ownership"
+    index:
+      confirm_delete: "Are you sure ?"
+    permission:
+      permissions: "User role and permissions"
+      permissions1: "Venue details"
+      permissions2: "Workspaces"
+      permissions3: "Members"
+      permissions4: "Reservations"
+      permissions5: "Calendars"
+      permissions6: "Member permissions"
+      permissions7: "Check-in/Check-out"
+      permissions8: "Venue settings"
+      permissions9: "Venue permissions"
+      permissions10: "Payments and payout"
+      permissions11: "Billing and invoicing"
+      permissions12: "Account settings"
+      permissions13: "Data & analytics"
+      permissions14: "Administrators"
+

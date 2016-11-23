@@ -55,4 +55,10 @@ module GeneralHelper
       "requested-#{booking.id}"
     end
   end
+
+  def check_owner_existed venue
+    if venue.user_role_venues.find_owner_role.size == Settings.owner_role_count
+      t "disabled"
+    end
+  end
 end

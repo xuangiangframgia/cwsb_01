@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_notification
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to :back, alert: exception.message
+  end
+
   include GeneralHelper
 
   around_action :skip_bullet

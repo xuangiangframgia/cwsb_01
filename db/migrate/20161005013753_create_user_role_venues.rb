@@ -3,7 +3,7 @@ class CreateUserRoleVenues < ActiveRecord::Migration[5.0]
     create_table :user_role_venues do |t|
       t.references :user, index: true, foreign_key: true
       t.references :venue, index: true, foreign_key: true
-      t.references :role, index: true, foreign_key: true
+      t.integer :type_role, null: false
       t.datetime "deleted_at"
 
       t.timestamps

@@ -37,3 +37,10 @@ content_booking:
     booking: "bookings"
     booking_history: "history"
     store_booking: "store_booking"
+owner_role_count: 2
+owner_role: 1
+owner_count: 1
+owner: "owner"
+manager: "manager"
+client_service : "client_service"
+reception : "reception"
