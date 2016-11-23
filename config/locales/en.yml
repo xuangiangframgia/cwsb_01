@@ -24,6 +24,7 @@ en:
   failed: "failed"
   success: "success"
   in: "in"
+  next: "Next"
   check_all: "Check all"
   working_times: "Working times"
   new_venue: "Create Venue"
