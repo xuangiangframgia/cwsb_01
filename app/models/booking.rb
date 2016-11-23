@@ -18,8 +18,8 @@ class Booking < ApplicationRecord
   after_update_commit :send_notification
 
   validates :booking_from, presence: true
-  validates :duration, presence: true
-  validates :quantity, presence: true
+  validates :duration, presence: true, numericality: {greater_than: 0}
+  validates :quantity, presence: true, numericality: {greater_than: 0}
   validates :user, presence: true
 
   delegate :name, to: :booking_type, prefix: true, allow_nil: true
@@ -63,7 +63,7 @@ class Booking < ApplicationRecord
   private
 
   def send_notification
-    owner_space_id = self.space.venue.user_role_venues.find_by(role_id: Role.owner).user_id
+    owner_space_id = self.space.venue.user_role_venues.find_by(role_id: Role.owner)
     case
     when rejected?
       if message.present?
