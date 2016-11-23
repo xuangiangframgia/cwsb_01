@@ -11,6 +11,7 @@
 /tmp/
 /log/*
 /public/uploads/*
+/vendor/assets/bower_components/*
 # Used by dotenv library to load environment variables.
 # .env
 

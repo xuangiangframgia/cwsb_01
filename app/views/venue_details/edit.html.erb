@@ -20,14 +20,28 @@
                 <%= form_image.input :picture,
                   input_html: {class: "margin-bot-15"} %>
               <% end %>
-              <%= f.input :number_of_floors,
-                input_html: {class: "form-control margin-bot-15"} %>
-              <%= f.input :floor_space,
-                input_html: {class: "form-control margin-bot-15"} %>
-              <%= f.input :number_of_rooms,
-                input_html: {class: "form-control margin-bot-15"} %>
-              <%= f.input :number_of_desks,
-                input_html: {class: "form-control margin-bot-15"} %>
+              <div class="row">
+                <div class="col-md-3">
+                  <%= f.input :number_of_floors,
+                    input_html: {class: "form-control margin-bot-15",
+                    "data-validation": "number"} %>
+                </div>
+                <div class="col-md-3">
+                  <%= f.input :floor_space,
+                    input_html: {class: "form-control margin-bot-15",
+                    "data-validation": "number"} %>
+                </div>
+                <div class="col-md-3">
+                  <%= f.input :number_of_rooms,
+                    input_html: {class: "form-control margin-bot-15",
+                    "data-validation": "number"} %>
+                </div>
+                <div class="col-md-3">
+                  <%= f.input :number_of_desks,
+                    input_html: {class: "form-control margin-bot-15",
+                    "data-validation": "number"} %>
+                </div>
+              </div>
               <%= hidden_field_tag :detail, :active %><br>
               <div class="panel panel-success">
                 <div class="panel-heading">
@@ -45,7 +59,10 @@
                   </div>
                 </div>
               </div>
-              <%= f.button :submit, class: "btn btn-primary pull-right" %>
+              <%= f.button :submit, class: "btn btn-primary pull-left" %>
+            <% end %>
+            <%= link_to venue_spaces_path(@venue), class: "btn btn-primary pull-right" do %>
+              <%= t "next" %> <i class="fa fa-chevron-right" aria-hidden="true"></i>
             <% end %>
           </div>
         </div>
