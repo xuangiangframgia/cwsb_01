@@ -16,12 +16,12 @@ class UserRoleVenue < ApplicationRecord
 
   delegate :email, to: :user
 
-  before_create :update_current_owner_role
+  before_create :update_current_owner_role, if: :old_owner
 
   def update_current_owner_role
     if self.type_role == Settings.owner
       current_roles = self.old_owner.user_role_venues.find_by venue_id: venue_id
-      current_roles.update_attributes type_role: Settings.manager
+      current_roles.update_attributes type_role: Settings.manager if current_roles
     end
   end
 
